@@ -78,7 +78,7 @@
                                 <rect key="frame" x="110" y="462" width="194" height="30"/>
                                 <state key="normal" title="Not a member? Sign up now"/>
                                 <connections>
-                                    <action selector="goToJoin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nrk-3l-MZn"/>
+                                    <action selector="goToSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6mN-W7-I9X"/>
                                 </connections>
                             </button>
                         </subviews>

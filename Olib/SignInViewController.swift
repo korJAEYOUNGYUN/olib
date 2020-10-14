@@ -25,18 +25,18 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func emailEditingChanged(_ sender: UITextField) {
-        if isValidEmail(sender.text!) {
+        if sender.text!.isValidEmail() {
             hideWarning(label: emailWarningLabel)
         } else {
-            showWarning(label: emailWarningLabel, msg: EMAIL_INVALID)
+            showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
         }
     }
     
     @IBAction func passwordEditingChanged(_ sender: UITextField) {
-        if isValidPassword(sender.text!) {
+        if sender.text!.isValidPassword() {
             hideWarning(label: passwordWarningLabel)
         } else {
-            showWarning(label: passwordWarningLabel, msg: PASSWORD_INVALID)
+            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
         }
     }
     
@@ -44,12 +44,12 @@ class SignInViewController: UIViewController {
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
-        if !isValidEmail(email) {
-            showWarning(label: emailWarningLabel, msg: EMAIL_INVALID)
+        if !email.isValidEmail() {
+            showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
         }
         
-        if !isValidPassword(password) {
-            showWarning(label: passwordWarningLabel, msg: PASSWORD_INVALID)
+        if !password.isValidPassword() {
+            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
         }
         
         // do sign in here
@@ -58,8 +58,11 @@ class SignInViewController: UIViewController {
         
     }
     
-    @IBAction func goToJoin(_ sender: Any) {
-        // go further to joinVC
+    @IBAction func goToSignUp(_ sender: Any) {
+        // go further to signupVC
+        let signUpVC = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        signUpVC.modalPresentationStyle = .fullScreen
+        self.present(signUpVC, animated: true, completion: nil)
     }
     
     private func hideWarning(label: UILabel) {
@@ -79,14 +82,7 @@ class SignInViewController: UIViewController {
         }
     }
     
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
     
-    private func isValidPassword(_ password: String) -> Bool {
-        return password.count >= 8
-    }
+    
+    
 }

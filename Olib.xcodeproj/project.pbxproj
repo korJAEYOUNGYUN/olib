@@ -13,6 +13,9 @@
 		002C98782534837500DA1AD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 002C98772534837500DA1AD9 /* Assets.xcassets */; };
 		002C987B2534837500DA1AD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002C98792534837500DA1AD9 /* LaunchScreen.storyboard */; };
 		002C988625359F3800DA1AD9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C988525359F3800DA1AD9 /* SignInViewController.swift */; };
+		002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98882535E35600DA1AD9 /* SignUpViewController.swift */; };
+		002C988C2535E39000DA1AD9 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */; };
+		002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		002C987A2534837500DA1AD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		002C987C2534837500DA1AD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002C988525359F3800DA1AD9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		002C98882535E35600DA1AD9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
+		002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ValidateUserInfo.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				002C98702534837400DA1AD9 /* SceneDelegate.swift */,
 				002C98742534837400DA1AD9 /* Main.storyboard */,
 				002C988525359F3800DA1AD9 /* SignInViewController.swift */,
+				002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */,
+				002C98882535E35600DA1AD9 /* SignUpViewController.swift */,
+				002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */,
 				002C98772534837500DA1AD9 /* Assets.xcassets */,
 				002C98792534837500DA1AD9 /* LaunchScreen.storyboard */,
 				002C987C2534837500DA1AD9 /* Info.plist */,
@@ -127,6 +136,7 @@
 				002C987B2534837500DA1AD9 /* LaunchScreen.storyboard in Resources */,
 				002C98782534837500DA1AD9 /* Assets.xcassets in Resources */,
 				002C98762534837400DA1AD9 /* Main.storyboard in Resources */,
+				002C988C2535E39000DA1AD9 /* SignUpViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +149,9 @@
 			files = (
 				002C986F2534837400DA1AD9 /* AppDelegate.swift in Sources */,
 				002C98712534837400DA1AD9 /* SceneDelegate.swift in Sources */,
+				002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */,
 				002C988625359F3800DA1AD9 /* SignInViewController.swift in Sources */,
+				002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
