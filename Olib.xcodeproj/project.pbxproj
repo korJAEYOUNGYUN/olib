@@ -16,6 +16,12 @@
 		002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98882535E35600DA1AD9 /* SignUpViewController.swift */; };
 		002C988C2535E39000DA1AD9 /* SignUpViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */; };
 		002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */; };
+		002C98932536B2F300DA1AD9 /* BookSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */; };
+		002C98962536B30500DA1AD9 /* BookSearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002C98952536B30500DA1AD9 /* BookSearchViewController.storyboard */; };
+		002C98992536C4F400DA1AD9 /* SearchedBooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */; };
+		002C989C2536C50F00DA1AD9 /* SearchedBooksTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 002C989B2536C50F00DA1AD9 /* SearchedBooksTableViewController.storyboard */; };
+		002C98A02536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */; };
+		002C98A12536CA6D00DA1AD9 /* SearchedBookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002C989F2536CA6D00DA1AD9 /* SearchedBookTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,12 @@
 		002C98882535E35600DA1AD9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpViewController.storyboard; sourceTree = "<group>"; };
 		002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+ValidateUserInfo.swift"; sourceTree = "<group>"; };
+		002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewController.swift; sourceTree = "<group>"; };
+		002C98952536B30500DA1AD9 /* BookSearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BookSearchViewController.storyboard; sourceTree = "<group>"; };
+		002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedBooksTableViewController.swift; sourceTree = "<group>"; };
+		002C989B2536C50F00DA1AD9 /* SearchedBooksTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchedBooksTableViewController.storyboard; sourceTree = "<group>"; };
+		002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedBookTableViewCell.swift; sourceTree = "<group>"; };
+		002C989F2536CA6D00DA1AD9 /* SearchedBookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchedBookTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +77,12 @@
 				002C986E2534837400DA1AD9 /* AppDelegate.swift */,
 				002C98702534837400DA1AD9 /* SceneDelegate.swift */,
 				002C98742534837400DA1AD9 /* Main.storyboard */,
+				002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */,
+				002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */,
+				002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */,
+				002C989F2536CA6D00DA1AD9 /* SearchedBookTableViewCell.xib */,
+				002C989B2536C50F00DA1AD9 /* SearchedBooksTableViewController.storyboard */,
+				002C98952536B30500DA1AD9 /* BookSearchViewController.storyboard */,
 				002C988525359F3800DA1AD9 /* SignInViewController.swift */,
 				002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */,
 				002C98882535E35600DA1AD9 /* SignUpViewController.swift */,
@@ -135,8 +153,11 @@
 			files = (
 				002C987B2534837500DA1AD9 /* LaunchScreen.storyboard in Resources */,
 				002C98782534837500DA1AD9 /* Assets.xcassets in Resources */,
+				002C989C2536C50F00DA1AD9 /* SearchedBooksTableViewController.storyboard in Resources */,
 				002C98762534837400DA1AD9 /* Main.storyboard in Resources */,
+				002C98A12536CA6D00DA1AD9 /* SearchedBookTableViewCell.xib in Resources */,
 				002C988C2535E39000DA1AD9 /* SignUpViewController.storyboard in Resources */,
+				002C98962536B30500DA1AD9 /* BookSearchViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,10 +169,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				002C986F2534837400DA1AD9 /* AppDelegate.swift in Sources */,
+				002C98932536B2F300DA1AD9 /* BookSearchViewController.swift in Sources */,
 				002C98712534837400DA1AD9 /* SceneDelegate.swift in Sources */,
 				002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */,
+				002C98992536C4F400DA1AD9 /* SearchedBooksTableViewController.swift in Sources */,
 				002C988625359F3800DA1AD9 /* SignInViewController.swift in Sources */,
 				002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */,
+				002C98A02536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

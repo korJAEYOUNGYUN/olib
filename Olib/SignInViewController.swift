@@ -56,6 +56,10 @@ class SignInViewController: UIViewController {
         // valid user credentials and get token
         // go further to menuVC
         
+        // temp
+        let searchVC = UIStoryboard(name: "BookSearchViewController", bundle: nil).instantiateViewController(withIdentifier: "BookSearchNavigationController")
+        searchVC.modalPresentationStyle = .fullScreen
+        self.present(searchVC, animated: true, completion: nil)
     }
     
     @IBAction func goToSignUp(_ sender: Any) {
