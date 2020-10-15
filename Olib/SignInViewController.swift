@@ -57,9 +57,11 @@ class SignInViewController: UIViewController {
         // go further to menuVC
         
         // temp
-        let searchVC = UIStoryboard(name: "BookSearchViewController", bundle: nil).instantiateViewController(withIdentifier: "BookSearchNavigationController")
-        searchVC.modalPresentationStyle = .fullScreen
-        self.present(searchVC, animated: true, completion: nil)
+//        let searchVC = UIStoryboard(name: "BookSearchViewController", bundle: nil).instantiateViewController(withIdentifier: "BookSearchNavigationController")>
+        let menuTabController = MenuTabBarController()
+        menuTabController.modalPresentationStyle = .fullScreen
+//        searchVC.modalPresentationStyle = .fullScreen
+        self.present(menuTabController, animated: true, completion: nil)
     }
     
     @IBAction func goToSignUp(_ sender: Any) {

@@ -165,10 +165,10 @@
             </objects>
             <point key="canvasLocation" x="982.60869565217399" y="76.339285714285708"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="MVe-nd-6kp">
             <objects>
-                <navigationController storyboardIdentifier="BookSearchNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="0dM-WH-BpD" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BookSearchNavigationController" title="Search" automaticallyAdjustsScrollViewInsets="NO" id="0dM-WH-BpD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tkK-m2-ny5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
