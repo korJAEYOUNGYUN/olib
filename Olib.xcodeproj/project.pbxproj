@@ -30,6 +30,12 @@
 		002C98B42538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98B22538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift */; };
 		002C98B52538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002C98B32538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib */; };
 		002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98B72538357F00DA1AD9 /* MenuTabBarController.swift */; };
+		002C98D7255006AA00DA1AD9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98D6255006AA00DA1AD9 /* HTTPMethod.swift */; };
+		002C98DE2551249400DA1AD9 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98DD2551249400DA1AD9 /* Token.swift */; };
+		002C98E52551282600DA1AD9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98E42551282600DA1AD9 /* AuthManager.swift */; };
+		002C98E82551488600DA1AD9 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98E72551488600DA1AD9 /* APIRequest.swift */; };
+		002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98EB2551826300DA1AD9 /* TokenRequest.swift */; };
+		002C98F4255195CB00DA1AD9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98F3255195CB00DA1AD9 /* ServerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +64,12 @@
 		002C98B22538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousBorrowingTableViewCell.swift; sourceTree = "<group>"; };
 		002C98B32538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviousBorrowingTableViewCell.xib; sourceTree = "<group>"; };
 		002C98B72538357F00DA1AD9 /* MenuTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarController.swift; sourceTree = "<group>"; };
+		002C98D6255006AA00DA1AD9 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		002C98DD2551249400DA1AD9 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		002C98E42551282600DA1AD9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		002C98E72551488600DA1AD9 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		002C98EB2551826300DA1AD9 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
+		002C98F3255195CB00DA1AD9 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,32 +102,174 @@
 		002C986D2534837400DA1AD9 /* Olib */ = {
 			isa = PBXGroup;
 			children = (
-				002C986E2534837400DA1AD9 /* AppDelegate.swift */,
-				002C98702534837400DA1AD9 /* SceneDelegate.swift */,
-				002C98742534837400DA1AD9 /* Main.storyboard */,
-				002C98A32537FFFD00DA1AD9 /* MyBookListViewController.swift */,
+				002C98C4254FDB0200DA1AD9 /* Resources */,
+				002C98C5254FDB1100DA1AD9 /* Source */,
+				002C98C7254FDBA100DA1AD9 /* Storyboards */,
+				002C98BE254FD53A00DA1AD9 /* Supporting Files */,
+			);
+			path = Olib;
+			sourceTree = "<group>";
+		};
+		002C98BB254FD40D00DA1AD9 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				002C988525359F3800DA1AD9 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		002C98BD254FD50100DA1AD9 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				002C98882535E35600DA1AD9 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		002C98BE254FD53A00DA1AD9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				002C987C2534837500DA1AD9 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		002C98C0254FD7CA00DA1AD9 /* MenuTab */ = {
+			isa = PBXGroup;
+			children = (
+				002C98C2254FD8C500DA1AD9 /* MyBookList */,
+				002C98C1254FD7E000DA1AD9 /* Search */,
 				002C98B72538357F00DA1AD9 /* MenuTabBarController.swift */,
-				002C98AF2538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift */,
-				002C98A62538007B00DA1AD9 /* MyBookListViewController.storyboard */,
-				002C98A92538021A00DA1AD9 /* CurrentBorrowingTableViewCell.swift */,
-				002C98B22538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift */,
-				002C98B32538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib */,
-				002C98AA2538021A00DA1AD9 /* CurrentBorrowingTableViewCell.xib */,
-				002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */,
+			);
+			path = MenuTab;
+			sourceTree = "<group>";
+		};
+		002C98C1254FD7E000DA1AD9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
 				002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */,
 				002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */,
+				002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		002C98C2254FD8C500DA1AD9 /* MyBookList */ = {
+			isa = PBXGroup;
+			children = (
+				002C98B22538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift */,
+				002C98A92538021A00DA1AD9 /* CurrentBorrowingTableViewCell.swift */,
+				002C98AF2538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift */,
+				002C98A32537FFFD00DA1AD9 /* MyBookListViewController.swift */,
+			);
+			path = MyBookList;
+			sourceTree = "<group>";
+		};
+		002C98C4254FDB0200DA1AD9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				002C98772534837500DA1AD9 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		002C98C5254FDB1100DA1AD9 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				002C98C9254FDCA600DA1AD9 /* Application */,
+				002C98CA254FDD6700DA1AD9 /* Core Additions */,
+				002C98C8254FDC1C00DA1AD9 /* Models */,
+				002C98C6254FDB1900DA1AD9 /* Modules */,
+				002C98F2255191AD00DA1AD9 /* Manager */,
+				002C98D3255004AE00DA1AD9 /* Networking */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		002C98C6254FDB1900DA1AD9 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				002C98C0254FD7CA00DA1AD9 /* MenuTab */,
+				002C98BB254FD40D00DA1AD9 /* SignIn */,
+				002C98BD254FD50100DA1AD9 /* SignUp */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		002C98C7254FDBA100DA1AD9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				002C98792534837500DA1AD9 /* LaunchScreen.storyboard */,
+				002C98A62538007B00DA1AD9 /* MyBookListViewController.storyboard */,
+				002C98742534837400DA1AD9 /* Main.storyboard */,
+				002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */,
+				002C98AA2538021A00DA1AD9 /* CurrentBorrowingTableViewCell.xib */,
+				002C98B32538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib */,
 				002C989F2536CA6D00DA1AD9 /* SearchedBookTableViewCell.xib */,
 				002C989B2536C50F00DA1AD9 /* SearchedBooksTableViewController.storyboard */,
 				002C98952536B30500DA1AD9 /* BookSearchViewController.storyboard */,
-				002C988525359F3800DA1AD9 /* SignInViewController.swift */,
-				002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */,
-				002C98882535E35600DA1AD9 /* SignUpViewController.swift */,
-				002C988B2535E39000DA1AD9 /* SignUpViewController.storyboard */,
-				002C98772534837500DA1AD9 /* Assets.xcassets */,
-				002C98792534837500DA1AD9 /* LaunchScreen.storyboard */,
-				002C987C2534837500DA1AD9 /* Info.plist */,
 			);
-			path = Olib;
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		002C98C8254FDC1C00DA1AD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		002C98C9254FDCA600DA1AD9 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				002C986E2534837400DA1AD9 /* AppDelegate.swift */,
+				002C98702534837400DA1AD9 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		002C98CA254FDD6700DA1AD9 /* Core Additions */ = {
+			isa = PBXGroup;
+			children = (
+				002C98CB254FDD7C00DA1AD9 /* Utilities */,
+			);
+			path = "Core Additions";
+			sourceTree = "<group>";
+		};
+		002C98CB254FDD7C00DA1AD9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		002C98D3255004AE00DA1AD9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				002C98EA2551821000DA1AD9 /* Requests */,
+				002C98D6255006AA00DA1AD9 /* HTTPMethod.swift */,
+				002C98DD2551249400DA1AD9 /* Token.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		002C98EA2551821000DA1AD9 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				002C98E72551488600DA1AD9 /* APIRequest.swift */,
+				002C98EB2551826300DA1AD9 /* TokenRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		002C98F2255191AD00DA1AD9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				002C98E42551282600DA1AD9 /* AuthManager.swift */,
+				002C98F3255195CB00DA1AD9 /* ServerManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,15 +351,21 @@
 			files = (
 				002C986F2534837400DA1AD9 /* AppDelegate.swift in Sources */,
 				002C98932536B2F300DA1AD9 /* BookSearchViewController.swift in Sources */,
+				002C98D7255006AA00DA1AD9 /* HTTPMethod.swift in Sources */,
 				002C98B02538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift in Sources */,
 				002C98712534837400DA1AD9 /* SceneDelegate.swift in Sources */,
+				002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */,
 				002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */,
+				002C98DE2551249400DA1AD9 /* Token.swift in Sources */,
 				002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */,
 				002C98992536C4F400DA1AD9 /* SearchedBooksTableViewController.swift in Sources */,
+				002C98E52551282600DA1AD9 /* AuthManager.swift in Sources */,
 				002C988625359F3800DA1AD9 /* SignInViewController.swift in Sources */,
 				002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */,
 				002C98B42538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift in Sources */,
 				002C98A42537FFFD00DA1AD9 /* MyBookListViewController.swift in Sources */,
+				002C98F4255195CB00DA1AD9 /* ServerManager.swift in Sources */,
+				002C98E82551488600DA1AD9 /* APIRequest.swift in Sources */,
 				002C98A02536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift in Sources */,
 				002C98AB2538021A00DA1AD9 /* CurrentBorrowingTableViewCell.swift in Sources */,
 			);
@@ -355,7 +515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Olib/Info.plist;
+				INFOPLIST_FILE = "Olib/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -373,7 +533,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Olib/Info.plist;
+				INFOPLIST_FILE = "Olib/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

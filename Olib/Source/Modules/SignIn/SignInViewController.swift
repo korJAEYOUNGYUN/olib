@@ -40,28 +40,47 @@ class SignInViewController: UIViewController {
         }
     }
     
-    @IBAction func signIn(_ sender: Any) {
-        let email = emailTextField.text!
-        let password = passwordTextField.text!
+    @IBAction func didPresssignInButton(_ sender: UIButton) {
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
         
         if !email.isValidEmail() {
             showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
+            return
         }
+//        if !password.isValidPassword() {
+//            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
+//            return
+//        }
         
-        if !password.isValidPassword() {
-            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
-        }
-        
-        // do sign in here
-        // valid user credentials and get token
-        // go further to menuVC
-        
+        authenticate(with: email, password: password)
         // temp
-//        let searchVC = UIStoryboard(name: "BookSearchViewController", bundle: nil).instantiateViewController(withIdentifier: "BookSearchNavigationController")>
-        let menuTabController = MenuTabBarController()
-        menuTabController.modalPresentationStyle = .fullScreen
-//        searchVC.modalPresentationStyle = .fullScreen
-        self.present(menuTabController, animated: true, completion: nil)
+//        let menuTabController = MenuTabBarController()
+//        menuTabController.modalPresentationStyle = .fullScreen
+//        self.present(menuTabController, animated: true, completion: nil)
+    }
+    
+    private func authenticate(with email: String, password: String) {
+        startLoading()
+        
+        AuthManager.shared.authenticate(with: email, password: password, completion: handleAuthenticationResponse)
+    }
+    
+    func handleAuthenticationResponse(_ response: HTTPURLResponse) {
+        stopLoading()
+        
+        switch response.statusCode {
+        case 200:
+            let menuTabController = MenuTabBarController()
+            menuTabController.modalPresentationStyle = .fullScreen
+            self.present(menuTabController, animated: true, completion: nil)
+        case 401:
+            // alert no account with the given credentials
+            return
+        default:
+            // server error
+            return
+        }
     }
     
     @IBAction func goToSignUp(_ sender: Any) {
@@ -69,6 +88,14 @@ class SignInViewController: UIViewController {
         let signUpVC = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
         signUpVC.modalPresentationStyle = .fullScreen
         self.present(signUpVC, animated: true, completion: nil)
+    }
+    
+    private func startLoading() {
+        
+    }
+    
+    private func stopLoading() {
+        
     }
     
     private func hideWarning(label: UILabel) {
