@@ -48,16 +48,12 @@ class SignInViewController: UIViewController {
             showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
             return
         }
-//        if !password.isValidPassword() {
-//            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
-//            return
-//        }
+        if !password.isValidPassword() {
+            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
+            return
+        }
         
         authenticate(with: email, password: password)
-        // temp
-//        let menuTabController = MenuTabBarController()
-//        menuTabController.modalPresentationStyle = .fullScreen
-//        self.present(menuTabController, animated: true, completion: nil)
     }
     
     private func authenticate(with email: String, password: String) {
@@ -71,9 +67,11 @@ class SignInViewController: UIViewController {
         
         switch response.statusCode {
         case 200:
-            let menuTabController = MenuTabBarController()
-            menuTabController.modalPresentationStyle = .fullScreen
-            self.present(menuTabController, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                let menuTabController = MenuTabBarController()
+                menuTabController.modalPresentationStyle = .fullScreen
+                self.present(menuTabController, animated: true, completion: nil)
+            }
         case 401:
             // alert no account with the given credentials
             return
