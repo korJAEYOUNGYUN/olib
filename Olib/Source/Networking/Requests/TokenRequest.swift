@@ -12,6 +12,8 @@ class TokenRequest: APIRequest {
     var path: String = "/api/token/"
     var method: HTTPMethod = .post
     var credentials = [String: String]()
+    var accessToken: String?
+    var needPermission: Bool = false
     
     init(credentials: [String: String]) {
         self.credentials = credentials

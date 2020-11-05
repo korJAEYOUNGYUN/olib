@@ -7,13 +7,6 @@
 
 import UIKit
 
-// temporary mock book
-struct Book {
-    var title: String
-    var publisher: String
-    var author: String
-}
-
 class SearchedBooksTableViewController: UITableViewController {
 
     var searchedBookList = [Book]()
@@ -23,22 +16,6 @@ class SearchedBooksTableViewController: UITableViewController {
 
         self.tableView.register(UINib(nibName: "SearchedBookTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchedBookTableViewCell")
         self.tableView.estimatedRowHeight = 50
-        
-        // temp data
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
-        searchedBookList.append(Book(title: "b", publisher: "b", author: "b"))
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
-
-        searchedBookList.append(Book(title: "1cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", publisher: "2ccccccccccccccccccccccccccccccc", author: "3ccccccccccccccccccccccccccccccccccc"))
-
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
-
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
-
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
-
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
-        searchedBookList.append(Book(title: "aaaaaaa", publisher: "aa", author: "aaa"))
 
 
     }

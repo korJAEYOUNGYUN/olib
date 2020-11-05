@@ -36,6 +36,11 @@
 		002C98E82551488600DA1AD9 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98E72551488600DA1AD9 /* APIRequest.swift */; };
 		002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98EB2551826300DA1AD9 /* TokenRequest.swift */; };
 		002C98F4255195CB00DA1AD9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98F3255195CB00DA1AD9 /* ServerManager.swift */; };
+		002C98F82552F76C00DA1AD9 /* TokenRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98F72552F76C00DA1AD9 /* TokenRefreshRequest.swift */; };
+		002C98FB25530E5100DA1AD9 /* BookListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FA25530E5100DA1AD9 /* BookListRequest.swift */; };
+		002C98FE255312CC00DA1AD9 /* BookInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */; };
+		002C99082553B41100DA1AD9 /* BooksClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C99072553B41100DA1AD9 /* BooksClient.swift */; };
+		002C990E2554416400DA1AD9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C990D2554416400DA1AD9 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +75,11 @@
 		002C98E72551488600DA1AD9 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		002C98EB2551826300DA1AD9 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
 		002C98F3255195CB00DA1AD9 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		002C98F72552F76C00DA1AD9 /* TokenRefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshRequest.swift; sourceTree = "<group>"; };
+		002C98FA25530E5100DA1AD9 /* BookListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequest.swift; sourceTree = "<group>"; };
+		002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRequest.swift; sourceTree = "<group>"; };
+		002C99072553B41100DA1AD9 /* BooksClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksClient.swift; sourceTree = "<group>"; };
+		002C990D2554416400DA1AD9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +225,7 @@
 		002C98C8254FDC1C00DA1AD9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				002C990D2554416400DA1AD9 /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 		002C98D3255004AE00DA1AD9 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				002C99032553B37E00DA1AD9 /* Clients */,
 				002C98EA2551821000DA1AD9 /* Requests */,
 				002C98D6255006AA00DA1AD9 /* HTTPMethod.swift */,
 				002C98DD2551249400DA1AD9 /* Token.swift */,
@@ -259,6 +271,9 @@
 			children = (
 				002C98E72551488600DA1AD9 /* APIRequest.swift */,
 				002C98EB2551826300DA1AD9 /* TokenRequest.swift */,
+				002C98F72552F76C00DA1AD9 /* TokenRefreshRequest.swift */,
+				002C98FA25530E5100DA1AD9 /* BookListRequest.swift */,
+				002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -270,6 +285,14 @@
 				002C98F3255195CB00DA1AD9 /* ServerManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		002C99032553B37E00DA1AD9 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				002C99072553B41100DA1AD9 /* BooksClient.swift */,
+			);
+			path = Clients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,12 +372,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002C98FE255312CC00DA1AD9 /* BookInfoRequest.swift in Sources */,
 				002C986F2534837400DA1AD9 /* AppDelegate.swift in Sources */,
 				002C98932536B2F300DA1AD9 /* BookSearchViewController.swift in Sources */,
 				002C98D7255006AA00DA1AD9 /* HTTPMethod.swift in Sources */,
 				002C98B02538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift in Sources */,
 				002C98712534837400DA1AD9 /* SceneDelegate.swift in Sources */,
+				002C99082553B41100DA1AD9 /* BooksClient.swift in Sources */,
 				002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */,
+				002C990E2554416400DA1AD9 /* Book.swift in Sources */,
 				002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */,
 				002C98DE2551249400DA1AD9 /* Token.swift in Sources */,
 				002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */,
@@ -362,10 +388,12 @@
 				002C98E52551282600DA1AD9 /* AuthManager.swift in Sources */,
 				002C988625359F3800DA1AD9 /* SignInViewController.swift in Sources */,
 				002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */,
+				002C98FB25530E5100DA1AD9 /* BookListRequest.swift in Sources */,
 				002C98B42538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift in Sources */,
 				002C98A42537FFFD00DA1AD9 /* MyBookListViewController.swift in Sources */,
 				002C98F4255195CB00DA1AD9 /* ServerManager.swift in Sources */,
 				002C98E82551488600DA1AD9 /* APIRequest.swift in Sources */,
+				002C98F82552F76C00DA1AD9 /* TokenRefreshRequest.swift in Sources */,
 				002C98A02536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift in Sources */,
 				002C98AB2538021A00DA1AD9 /* CurrentBorrowingTableViewCell.swift in Sources */,
 			);

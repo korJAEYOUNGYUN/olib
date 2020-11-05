@@ -10,11 +10,15 @@ import Foundation
 class AuthManager {
     
     static let shared = AuthManager()
-    var serverURL: String
     private var token = Token()
     
-    init() {
-        serverURL = ServerManager.shared.serverURL
+    var accessToken: String? {
+        if !token.isValid(tokenType: .refresh) {
+            return nil
+        } else if !token.isValid(tokenType: .access) {
+            getAccessToken()
+        }
+        return token.accessToken
     }
     
     func authenticate(with email: String, password: String, completion: @escaping (HTTPURLResponse) -> Void) {
@@ -23,7 +27,7 @@ class AuthManager {
     }
     
     func getTokens(credentials: [String: String], completion: @escaping (HTTPURLResponse) -> Void) {
-        guard let request = TokenRequest(credentials: credentials).request(for: URL(string: serverURL)!) else {
+        guard let request = TokenRequest(credentials: credentials).request(for: URL(string: ServerManager.shared.serverURL)!) else {
             return
         }
         
@@ -40,5 +44,22 @@ class AuthManager {
             
             completion(response)
         }.resume()
+    }
+    
+    func getAccessToken() {
+        guard let request = TokenRefreshRequest(refreshToken: ["refresh": token.refreshToken!]).request(for: URL(string: ServerManager.shared.serverURL)!) else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let response = response as? HTTPURLResponse else {
+                return
+            }
+            
+            if response.statusCode == 200, let data = data {
+                let jsonData = try! JSONSerialization.jsonObject(with: data) as! [String: String]
+                self.token.accessToken = jsonData["access"]
+            }
+        }
     }
 }
