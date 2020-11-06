@@ -10,6 +10,8 @@ import UIKit
 class SearchedBooksTableViewController: UITableViewController {
 
     var searchedBookList = [Book]()
+    var bookInfoDict = [Int: BookInfo]()
+    var queries: [String: String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,60 @@ class SearchedBooksTableViewController: UITableViewController {
         self.tableView.register(UINib(nibName: "SearchedBookTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchedBookTableViewCell")
         self.tableView.estimatedRowHeight = 50
 
+        getSearchedBooks()
+    }
+    
+    private func getSearchedBooks() {
+        guard let accessToken = AuthManager.shared.accessToken else {
+            return
+        }
+        
+        BooksClient().searchBooks(accessToken: accessToken, queries: queries, completion: handleSearchedBook)
+    }
+    
+    // Todo: BookInfo가 다 채워지면 테이블뷰 로딩해야함
+    private func getBookInfos() {
+        guard let accessToken = AuthManager.shared.accessToken else {
+            return
+        }
+        
+        let booksClient = BooksClient()
+        for book in searchedBookList {
+            booksClient.bookInfo(accessToken: accessToken, bookId: book.book_info, completion: handleGetBookInfo)
+        }
+    }
+    
+    private func handleGetBookInfo(_ response: HTTPURLResponse, _ data: Data?) {
+        switch response.statusCode {
+        case 200:
+            if let data = data {
+                let bookInfo = try! JSONDecoder().decode(BookInfo.self, from: data)
+                bookInfoDict[bookInfo.id] = bookInfo
+            }
+        // no permission
+        case 401:
+            return
+        // server error
+        default:
+            return
+        }
 
+    }
+    
+    private func handleSearchedBook(_ response: HTTPURLResponse, _ data: Data?) {
+        switch response.statusCode {
+        case 200:
+            if let data = data {
+                searchedBookList = try! JSONDecoder().decode([Book].self, from: data)
+                getBookInfos()
+            }
+        // no permission
+        case 401:
+            return
+        // server error
+        default:
+            return
+        }
     }
 
     // MARK: - Table view data source
@@ -39,9 +94,12 @@ class SearchedBooksTableViewController: UITableViewController {
 
         // Configure the cell...
         let book = searchedBookList[indexPath.row]
-        cell.titleLabel.text = book.title
-        cell.authorLabel.text = book.author
-        cell.publisherLabel.text = book.publisher
+        guard let bookInfo = bookInfoDict[book.book_info] else {
+            return cell
+        }
+        cell.titleLabel.text = bookInfo.title
+        cell.authorLabel.text = bookInfo.author
+        cell.publisherLabel.text = bookInfo.publisher
 
         return cell
     }

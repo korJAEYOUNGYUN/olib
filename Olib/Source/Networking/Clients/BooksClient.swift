@@ -9,8 +9,7 @@ import Foundation
 
 struct BooksClient {
         
-    func searchBooks(queries: [String: String]?, completion: @escaping (HTTPURLResponse, Data?) -> Void) {
-        let accessToken = ""
+    func searchBooks(accessToken: String, queries: [String: String]?, completion: @escaping (HTTPURLResponse, Data?) -> Void) {
         guard let request = BookListRequest(accessToken: accessToken).request(for: URL(string: ServerManager.shared.serverURL)!, with: queries) else {
             return
         }
@@ -24,8 +23,7 @@ struct BooksClient {
         }.resume()
     }
     
-    func bookInfo(bookId: Int, completion: @escaping (HTTPURLResponse, Data?) -> Void) {
-        let accessToken = ""
+    func bookInfo(accessToken: String, bookId: Int, completion: @escaping (HTTPURLResponse, Data?) -> Void) {
         guard let request = BookInfoRequest(accessToken: accessToken, bookId: bookId).request(for: URL(string: ServerManager.shared.serverURL)!) else {
             return
         }

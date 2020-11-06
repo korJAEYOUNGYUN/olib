@@ -26,7 +26,7 @@ class AuthManager {
         getTokens(credentials: credentials, completion: completion)
     }
     
-    func getTokens(credentials: [String: String], completion: @escaping (HTTPURLResponse) -> Void) {
+    private func getTokens(credentials: [String: String], completion: @escaping (HTTPURLResponse) -> Void) {
         guard let request = TokenRequest(credentials: credentials).request(for: URL(string: ServerManager.shared.serverURL)!) else {
             return
         }
@@ -46,7 +46,7 @@ class AuthManager {
         }.resume()
     }
     
-    func getAccessToken() {
+    private func getAccessToken() {
         guard let request = TokenRefreshRequest(refreshToken: ["refresh": token.refreshToken!]).request(for: URL(string: ServerManager.shared.serverURL)!) else {
             return
         }

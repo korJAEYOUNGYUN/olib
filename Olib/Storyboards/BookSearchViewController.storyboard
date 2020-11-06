@@ -97,24 +97,8 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="45S-Zd-CNu">
-                                <rect key="frame" x="20" y="458" width="374" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISBN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcJ-oZ-abb">
-                                        <rect key="frame" x="0.0" y="0.0" width="53" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bSy-T7-NyV">
-                                        <rect key="frame" x="61" y="0.0" width="313" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPj-cd-CEg">
-                                <rect key="frame" x="177.5" y="532" width="59" height="30"/>
+                                <rect key="frame" x="177.5" y="478" width="59" height="30"/>
                                 <state key="normal" title="SEARCH"/>
                                 <connections>
                                     <action selector="searchBook:" destination="mVI-Dr-cvW" eventType="touchUpInside" id="nwt-nA-wRw"/>
@@ -127,7 +111,6 @@
                             <constraint firstItem="OPj-cd-CEg" firstAttribute="centerX" secondItem="vlj-O9-SRa" secondAttribute="centerX" id="08V-Tg-XX5"/>
                             <constraint firstItem="VNQ-n2-Nvq" firstAttribute="leading" secondItem="blD-5h-oUk" secondAttribute="leading" id="1L5-9i-fhZ"/>
                             <constraint firstItem="AVs-f3-mmP" firstAttribute="leading" secondItem="snA-7M-FU1" secondAttribute="leading" constant="20" id="4Rk-2T-vmK"/>
-                            <constraint firstItem="45S-Zd-CNu" firstAttribute="leading" secondItem="snA-7M-FU1" secondAttribute="leading" constant="20" id="5P2-zX-U8N"/>
                             <constraint firstItem="ET1-rS-aX2" firstAttribute="leading" secondItem="snA-7M-FU1" secondAttribute="leading" constant="20" id="ABa-px-oea"/>
                             <constraint firstItem="dNT-5U-i8P" firstAttribute="leading" secondItem="blD-5h-oUk" secondAttribute="leading" id="AGH-kW-Qxg"/>
                             <constraint firstItem="beQ-FN-hOP" firstAttribute="leading" secondItem="blD-5h-oUk" secondAttribute="leading" id="BaE-6T-5oI"/>
@@ -138,23 +121,19 @@
                             <constraint firstItem="snA-7M-FU1" firstAttribute="trailing" secondItem="sTH-YY-gOw" secondAttribute="trailing" constant="20" id="Oee-Gf-bPS"/>
                             <constraint firstItem="VdY-6T-6Tv" firstAttribute="leading" secondItem="snA-7M-FU1" secondAttribute="leading" constant="20" id="PfO-Fw-mrU"/>
                             <constraint firstItem="AVs-f3-mmP" firstAttribute="top" secondItem="sTH-YY-gOw" secondAttribute="bottom" constant="20" id="Ux2-U2-nbk"/>
-                            <constraint firstItem="snA-7M-FU1" firstAttribute="trailing" secondItem="45S-Zd-CNu" secondAttribute="trailing" constant="20" id="Wrs-OI-75r"/>
                             <constraint firstItem="wXk-mU-RQW" firstAttribute="leading" secondItem="snA-7M-FU1" secondAttribute="leading" constant="20" id="asj-5S-Bgb"/>
                             <constraint firstItem="snA-7M-FU1" firstAttribute="trailing" secondItem="wXk-mU-RQW" secondAttribute="trailing" constant="20" id="bBl-VT-JQf"/>
                             <constraint firstItem="fXE-9M-MYg" firstAttribute="leading" secondItem="blD-5h-oUk" secondAttribute="leading" id="dye-9l-XuY"/>
-                            <constraint firstItem="45S-Zd-CNu" firstAttribute="top" secondItem="ET1-rS-aX2" secondAttribute="bottom" constant="20" id="fTH-B8-zQs"/>
                             <constraint firstItem="VdY-6T-6Tv" firstAttribute="top" secondItem="wXk-mU-RQW" secondAttribute="bottom" constant="20" id="jgC-Ip-b45"/>
+                            <constraint firstItem="OPj-cd-CEg" firstAttribute="top" secondItem="ET1-rS-aX2" secondAttribute="bottom" constant="40" id="lYT-TP-UtV"/>
                             <constraint firstItem="snA-7M-FU1" firstAttribute="trailing" secondItem="VdY-6T-6Tv" secondAttribute="trailing" constant="20" id="mQQ-P6-Yoh"/>
                             <constraint firstItem="ET1-rS-aX2" firstAttribute="top" secondItem="VdY-6T-6Tv" secondAttribute="bottom" constant="20" id="nQs-n6-kZT"/>
-                            <constraint firstItem="OPj-cd-CEg" firstAttribute="top" secondItem="45S-Zd-CNu" secondAttribute="bottom" constant="40" id="ohL-WW-VwV"/>
                             <constraint firstItem="snA-7M-FU1" firstAttribute="trailing" secondItem="AVs-f3-mmP" secondAttribute="trailing" constant="20" id="qHO-Ja-Gha"/>
-                            <constraint firstItem="bSy-T7-NyV" firstAttribute="leading" secondItem="blD-5h-oUk" secondAttribute="leading" id="vJx-wj-ZRv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k1D-DT-GGV"/>
                     <connections>
                         <outlet property="authorTextField" destination="VNQ-n2-Nvq" id="FK6-f6-IwP"/>
-                        <outlet property="isbnTextField" destination="bSy-T7-NyV" id="iEH-VQ-BD4"/>
                         <outlet property="libraryTextField" destination="blD-5h-oUk" id="gmq-GO-uCR"/>
                         <outlet property="publisherTextField" destination="fXE-9M-MYg" id="XXT-86-keB"/>
                         <outlet property="titleTextField" destination="dNT-5U-i8P" id="U90-z9-Qot"/>

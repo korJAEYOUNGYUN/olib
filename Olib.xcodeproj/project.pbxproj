@@ -41,6 +41,8 @@
 		002C98FE255312CC00DA1AD9 /* BookInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */; };
 		002C99082553B41100DA1AD9 /* BooksClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C99072553B41100DA1AD9 /* BooksClient.swift */; };
 		002C990E2554416400DA1AD9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C990D2554416400DA1AD9 /* Book.swift */; };
+		002C99112555135E00DA1AD9 /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C99102555135E00DA1AD9 /* BookInfo.swift */; };
+		002C9914255513FA00DA1AD9 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9913255513FA00DA1AD9 /* Library.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRequest.swift; sourceTree = "<group>"; };
 		002C99072553B41100DA1AD9 /* BooksClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksClient.swift; sourceTree = "<group>"; };
 		002C990D2554416400DA1AD9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		002C99102555135E00DA1AD9 /* BookInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
+		002C9913255513FA00DA1AD9 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				002C990D2554416400DA1AD9 /* Book.swift */,
+				002C9913255513FA00DA1AD9 /* Library.swift */,
+				002C99102555135E00DA1AD9 /* BookInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -373,10 +379,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				002C98FE255312CC00DA1AD9 /* BookInfoRequest.swift in Sources */,
+				002C9914255513FA00DA1AD9 /* Library.swift in Sources */,
 				002C986F2534837400DA1AD9 /* AppDelegate.swift in Sources */,
 				002C98932536B2F300DA1AD9 /* BookSearchViewController.swift in Sources */,
 				002C98D7255006AA00DA1AD9 /* HTTPMethod.swift in Sources */,
 				002C98B02538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift in Sources */,
+				002C99112555135E00DA1AD9 /* BookInfo.swift in Sources */,
 				002C98712534837400DA1AD9 /* SceneDelegate.swift in Sources */,
 				002C99082553B41100DA1AD9 /* BooksClient.swift in Sources */,
 				002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */,
