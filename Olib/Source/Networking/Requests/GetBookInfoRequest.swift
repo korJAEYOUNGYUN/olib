@@ -1,5 +1,5 @@
 //
-//  BookListRequest.swift
+//  BookInfoRequest.swift
 //  Olib
 //
 //  Created by jaeyoung Yun on 2020/11/05.
@@ -7,15 +7,16 @@
 
 import Foundation
 
-class BookListRequest: APIRequest {
+class GetBookInfoRequest: APIRequest {
     
-    var path: String = "/api/books/"
+    var path: String = "/api/bookinfos/"
     var method: HTTPMethod = .get
     var accessToken: String?
     var needPermission: Bool = true
     
-    init(accessToken: String) {
+    init(accessToken: String, bookId: Int) {
         self.accessToken = accessToken
+        path += "\(bookId)/"
     }
     
     func body() -> Data? {

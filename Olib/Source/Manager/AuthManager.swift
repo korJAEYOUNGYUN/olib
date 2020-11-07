@@ -14,6 +14,7 @@ class AuthManager {
     
     var accessToken: String? {
         if !token.isValid(tokenType: .refresh) {
+            print("Refresh token is invalid.")
             return nil
         } else if !token.isValid(tokenType: .access) {
             getAccessToken()
@@ -27,7 +28,7 @@ class AuthManager {
     }
     
     private func getTokens(credentials: [String: String], completion: @escaping (HTTPURLResponse) -> Void) {
-        guard let request = TokenRequest(credentials: credentials).request(for: URL(string: ServerManager.shared.serverURL)!) else {
+        guard let request = PostTokenRequest(credentials: credentials).request(for: URL(string: ServerManager.shared.serverURL)!) else {
             return
         }
         
@@ -47,7 +48,8 @@ class AuthManager {
     }
     
     private func getAccessToken() {
-        guard let request = TokenRefreshRequest(refreshToken: ["refresh": token.refreshToken!]).request(for: URL(string: ServerManager.shared.serverURL)!) else {
+        guard let request = PostTokenRefreshRequest(refreshToken: ["refresh": token.refreshToken!]).request(for: URL(string: ServerManager.shared.serverURL)!) else {
+            print("No tokenrefreshrequest returned in getAccessToken() / \(self.self)")
             return
         }
         

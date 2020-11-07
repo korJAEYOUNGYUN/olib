@@ -1,22 +1,22 @@
 //
-//  BookInfoRequest.swift
+//  LibraryRequest.swift
 //  Olib
 //
-//  Created by jaeyoung Yun on 2020/11/05.
+//  Created by jaeyoung Yun on 2020/11/07.
 //
 
 import Foundation
 
-class BookInfoRequest: APIRequest {
+class GetLibraryRequest: APIRequest {
     
-    var path: String = "/api/books/"
+    var path: String = "/api/libraries/"
     var method: HTTPMethod = .get
     var accessToken: String?
     var needPermission: Bool = true
     
-    init(accessToken: String, bookId: Int) {
+    init(accessToken: String, libraryId: Int) {
         self.accessToken = accessToken
-        path += "\(bookId)/"
+        path += "\(libraryId)/"
     }
     
     func body() -> Data? {

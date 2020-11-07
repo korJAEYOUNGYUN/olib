@@ -10,6 +10,7 @@ import UIKit
 class SearchedBookTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var libraryLabel: UILabel!
     @IBOutlet weak var publisherLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     

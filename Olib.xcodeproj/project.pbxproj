@@ -34,15 +34,17 @@
 		002C98DE2551249400DA1AD9 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98DD2551249400DA1AD9 /* Token.swift */; };
 		002C98E52551282600DA1AD9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98E42551282600DA1AD9 /* AuthManager.swift */; };
 		002C98E82551488600DA1AD9 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98E72551488600DA1AD9 /* APIRequest.swift */; };
-		002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98EB2551826300DA1AD9 /* TokenRequest.swift */; };
+		002C98EC2551826300DA1AD9 /* PostTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98EB2551826300DA1AD9 /* PostTokenRequest.swift */; };
 		002C98F4255195CB00DA1AD9 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98F3255195CB00DA1AD9 /* ServerManager.swift */; };
-		002C98F82552F76C00DA1AD9 /* TokenRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98F72552F76C00DA1AD9 /* TokenRefreshRequest.swift */; };
-		002C98FB25530E5100DA1AD9 /* BookListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FA25530E5100DA1AD9 /* BookListRequest.swift */; };
-		002C98FE255312CC00DA1AD9 /* BookInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */; };
+		002C98F82552F76C00DA1AD9 /* PostTokenRefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98F72552F76C00DA1AD9 /* PostTokenRefreshRequest.swift */; };
+		002C98FB25530E5100DA1AD9 /* GetBookListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FA25530E5100DA1AD9 /* GetBookListRequest.swift */; };
+		002C98FE255312CC00DA1AD9 /* GetBookInfoRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98FD255312CC00DA1AD9 /* GetBookInfoRequest.swift */; };
 		002C99082553B41100DA1AD9 /* BooksClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C99072553B41100DA1AD9 /* BooksClient.swift */; };
 		002C990E2554416400DA1AD9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C990D2554416400DA1AD9 /* Book.swift */; };
 		002C99112555135E00DA1AD9 /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C99102555135E00DA1AD9 /* BookInfo.swift */; };
 		002C9914255513FA00DA1AD9 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9913255513FA00DA1AD9 /* Library.swift */; };
+		002C99172556CB8D00DA1AD9 /* GetLibraryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C99162556CB8D00DA1AD9 /* GetLibraryRequest.swift */; };
+		002C991F2556CC4000DA1AD9 /* LibraryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C991E2556CC4000DA1AD9 /* LibraryClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,15 +77,17 @@
 		002C98DD2551249400DA1AD9 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		002C98E42551282600DA1AD9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		002C98E72551488600DA1AD9 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		002C98EB2551826300DA1AD9 /* TokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRequest.swift; sourceTree = "<group>"; };
+		002C98EB2551826300DA1AD9 /* PostTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTokenRequest.swift; sourceTree = "<group>"; };
 		002C98F3255195CB00DA1AD9 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
-		002C98F72552F76C00DA1AD9 /* TokenRefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefreshRequest.swift; sourceTree = "<group>"; };
-		002C98FA25530E5100DA1AD9 /* BookListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListRequest.swift; sourceTree = "<group>"; };
-		002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoRequest.swift; sourceTree = "<group>"; };
+		002C98F72552F76C00DA1AD9 /* PostTokenRefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTokenRefreshRequest.swift; sourceTree = "<group>"; };
+		002C98FA25530E5100DA1AD9 /* GetBookListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookListRequest.swift; sourceTree = "<group>"; };
+		002C98FD255312CC00DA1AD9 /* GetBookInfoRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBookInfoRequest.swift; sourceTree = "<group>"; };
 		002C99072553B41100DA1AD9 /* BooksClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksClient.swift; sourceTree = "<group>"; };
 		002C990D2554416400DA1AD9 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		002C99102555135E00DA1AD9 /* BookInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
 		002C9913255513FA00DA1AD9 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		002C99162556CB8D00DA1AD9 /* GetLibraryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLibraryRequest.swift; sourceTree = "<group>"; };
+		002C991E2556CC4000DA1AD9 /* LibraryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,10 +280,11 @@
 			isa = PBXGroup;
 			children = (
 				002C98E72551488600DA1AD9 /* APIRequest.swift */,
-				002C98EB2551826300DA1AD9 /* TokenRequest.swift */,
-				002C98F72552F76C00DA1AD9 /* TokenRefreshRequest.swift */,
-				002C98FA25530E5100DA1AD9 /* BookListRequest.swift */,
-				002C98FD255312CC00DA1AD9 /* BookInfoRequest.swift */,
+				002C98EB2551826300DA1AD9 /* PostTokenRequest.swift */,
+				002C98F72552F76C00DA1AD9 /* PostTokenRefreshRequest.swift */,
+				002C98FA25530E5100DA1AD9 /* GetBookListRequest.swift */,
+				002C98FD255312CC00DA1AD9 /* GetBookInfoRequest.swift */,
+				002C99162556CB8D00DA1AD9 /* GetLibraryRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				002C99072553B41100DA1AD9 /* BooksClient.swift */,
+				002C991E2556CC4000DA1AD9 /* LibraryClient.swift */,
 			);
 			path = Clients;
 			sourceTree = "<group>";
@@ -378,16 +384,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002C98FE255312CC00DA1AD9 /* BookInfoRequest.swift in Sources */,
+				002C98FE255312CC00DA1AD9 /* GetBookInfoRequest.swift in Sources */,
 				002C9914255513FA00DA1AD9 /* Library.swift in Sources */,
 				002C986F2534837400DA1AD9 /* AppDelegate.swift in Sources */,
 				002C98932536B2F300DA1AD9 /* BookSearchViewController.swift in Sources */,
 				002C98D7255006AA00DA1AD9 /* HTTPMethod.swift in Sources */,
 				002C98B02538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift in Sources */,
+				002C991F2556CC4000DA1AD9 /* LibraryClient.swift in Sources */,
 				002C99112555135E00DA1AD9 /* BookInfo.swift in Sources */,
 				002C98712534837400DA1AD9 /* SceneDelegate.swift in Sources */,
 				002C99082553B41100DA1AD9 /* BooksClient.swift in Sources */,
-				002C98EC2551826300DA1AD9 /* TokenRequest.swift in Sources */,
+				002C98EC2551826300DA1AD9 /* PostTokenRequest.swift in Sources */,
 				002C990E2554416400DA1AD9 /* Book.swift in Sources */,
 				002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */,
 				002C98DE2551249400DA1AD9 /* Token.swift in Sources */,
@@ -395,13 +402,14 @@
 				002C98992536C4F400DA1AD9 /* SearchedBooksTableViewController.swift in Sources */,
 				002C98E52551282600DA1AD9 /* AuthManager.swift in Sources */,
 				002C988625359F3800DA1AD9 /* SignInViewController.swift in Sources */,
+				002C99172556CB8D00DA1AD9 /* GetLibraryRequest.swift in Sources */,
 				002C98902535F0C300DA1AD9 /* String+ValidateUserInfo.swift in Sources */,
-				002C98FB25530E5100DA1AD9 /* BookListRequest.swift in Sources */,
+				002C98FB25530E5100DA1AD9 /* GetBookListRequest.swift in Sources */,
 				002C98B42538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift in Sources */,
 				002C98A42537FFFD00DA1AD9 /* MyBookListViewController.swift in Sources */,
 				002C98F4255195CB00DA1AD9 /* ServerManager.swift in Sources */,
 				002C98E82551488600DA1AD9 /* APIRequest.swift in Sources */,
-				002C98F82552F76C00DA1AD9 /* TokenRefreshRequest.swift in Sources */,
+				002C98F82552F76C00DA1AD9 /* PostTokenRefreshRequest.swift in Sources */,
 				002C98A02536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift in Sources */,
 				002C98AB2538021A00DA1AD9 /* CurrentBorrowingTableViewCell.swift in Sources */,
 			);

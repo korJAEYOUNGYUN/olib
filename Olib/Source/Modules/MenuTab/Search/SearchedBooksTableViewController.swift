@@ -11,6 +11,7 @@ class SearchedBooksTableViewController: UITableViewController {
 
     var searchedBookList = [Book]()
     var bookInfoDict = [Int: BookInfo]()
+    var libraryDict = [Int: Library]()
     var queries: [String: String]?
     
     override func viewDidLoad() {
@@ -24,21 +25,26 @@ class SearchedBooksTableViewController: UITableViewController {
     
     private func getSearchedBooks() {
         guard let accessToken = AuthManager.shared.accessToken else {
+            print("getSearchBooks: No access token returned from authmanager to searchedbookstableviewcontroller.")
             return
         }
         
         BooksClient().searchBooks(accessToken: accessToken, queries: queries, completion: handleSearchedBook)
     }
     
-    // Todo: BookInfo가 다 채워지면 테이블뷰 로딩해야함
-    private func getBookInfos() {
+    private func getBookInfosAndLibraries() {
         guard let accessToken = AuthManager.shared.accessToken else {
+            print("getBookInfos: No access token returned from authmanager to searchedbookstableviewcontroller.")
             return
         }
         
-        let booksClient = BooksClient()
-        for book in searchedBookList {
-            booksClient.bookInfo(accessToken: accessToken, bookId: book.book_info, completion: handleGetBookInfo)
+        for (i, book) in searchedBookList.enumerated() {
+            BooksClient().getBookInfo(accessToken: accessToken, bookId: book.book_info, completion: handleGetBookInfo)
+            LibraryClient().getLibrary(accessToken: accessToken, libraryId: book.library, completion: handleGetLibrary)
+
+            DispatchQueue.main.async {
+                self.tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .automatic)
+            }
         }
     }
     
@@ -51,12 +57,13 @@ class SearchedBooksTableViewController: UITableViewController {
             }
         // no permission
         case 401:
+            print("handleGetBookInfo: no permission.")
             return
         // server error
         default:
+            print("handleGetBookInfo: server error status code - \(response.statusCode)")
             return
         }
-
     }
     
     private func handleSearchedBook(_ response: HTTPURLResponse, _ data: Data?) {
@@ -64,15 +71,36 @@ class SearchedBooksTableViewController: UITableViewController {
         case 200:
             if let data = data {
                 searchedBookList = try! JSONDecoder().decode([Book].self, from: data)
-                getBookInfos()
+                getBookInfosAndLibraries()
             }
         // no permission
         case 401:
+            print("handleSearchedBook: no permission.")
             return
         // server error
         default:
+            print("handleSearchedBook: server error status code - \(response.statusCode)")
             return
         }
+    }
+    
+    private func handleGetLibrary(_ response: HTTPURLResponse, _ data: Data?) {
+        switch response.statusCode {
+        case 200:
+            if let data = data {
+                let library = try! JSONDecoder().decode(Library.self, from: data)
+                libraryDict[library.id] = library
+            }
+        // no permission
+        case 401:
+            print("handleGetLibrary: no permission.")
+            return
+        // server error
+        default:
+            print("handleGetLibrary: server error status code - \(response.statusCode)")
+            return
+        }
+
     }
 
     // MARK: - Table view data source
@@ -97,7 +125,11 @@ class SearchedBooksTableViewController: UITableViewController {
         guard let bookInfo = bookInfoDict[book.book_info] else {
             return cell
         }
+        guard let library = libraryDict[book.library] else {
+            return cell
+        }
         cell.titleLabel.text = bookInfo.title
+        cell.libraryLabel.text = library.name
         cell.authorLabel.text = bookInfo.author
         cell.publisherLabel.text = bookInfo.publisher
 

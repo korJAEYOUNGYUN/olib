@@ -26,7 +26,7 @@ struct Token {
         }
         
         if let exp = exp {
-            return exp <= Date().timeIntervalSince1970
+            return exp > Date().timeIntervalSince1970
         }
         return false
     }

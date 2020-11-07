@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TokenRequest: APIRequest {
+class PostTokenRequest: APIRequest {
     
     var path: String = "/api/token/"
     var method: HTTPMethod = .post

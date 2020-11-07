@@ -25,8 +25,8 @@ extension MyBookListViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentBorrowingTableViewCell", for: indexPath) as! CurrentBorrowingTableViewCell
             
             let book = currentBorrowingList[indexPath.row]
-            cell.titleLabel.text = book.title
-            cell.authorLabel.text = book.author
+            cell.titleLabel.text = ""
+            cell.authorLabel.text = ""
             cell.borrowDateLabel.text = ""
             cell.deadlineLabel.text = ""
             
@@ -35,8 +35,8 @@ extension MyBookListViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousBorrowingTableViewCell", for: indexPath) as! PreviousBorrowingTableViewCell
             
             let book = previousBorrowingList[indexPath.row]
-            cell.titleLabel.text = book.title
-            cell.authorLabel.text = book.author
+            cell.titleLabel.text = ""
+            cell.authorLabel.text = ""
             cell.borrowDateLabel.text = ""
             cell.returnDateLabel.text = ""
             
