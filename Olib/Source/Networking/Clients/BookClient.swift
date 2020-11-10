@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BooksClient {
+struct BookClient {
         
     func searchBooks(accessToken: String, queries: [String: String]?, completion: @escaping (HTTPURLResponse, Data?) -> Void) {
         guard let request = GetBookListRequest(accessToken: accessToken).request(for: URL(string: ServerManager.shared.serverURL)!, with: queries) else {

@@ -7,12 +7,11 @@
 
 import Foundation
 
-struct Book: Decodable {
+struct Book: Codable {
     
     let id: Int
-    let library: Int
+    let library: Library
     let location: String
     let is_available: Bool
-    let book_info: Int
-    let due: String?
+    let book_info: BookInfo
 }

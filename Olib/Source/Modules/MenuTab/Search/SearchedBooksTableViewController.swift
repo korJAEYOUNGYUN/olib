@@ -10,8 +10,6 @@ import UIKit
 class SearchedBooksTableViewController: UITableViewController {
 
     var searchedBookList = [Book]()
-    var bookInfoDict = [Int: BookInfo]()
-    var libraryDict = [Int: Library]()
     var queries: [String: String]?
     
     override func viewDidLoad() {
@@ -29,49 +27,18 @@ class SearchedBooksTableViewController: UITableViewController {
             return
         }
         
-        BooksClient().searchBooks(accessToken: accessToken, queries: queries, completion: handleSearchedBook)
+        BookClient().searchBooks(accessToken: accessToken, queries: queries, completion: handleSearchedBook)
     }
-    
-    private func getBookInfosAndLibraries() {
-        guard let accessToken = AuthManager.shared.accessToken else {
-            print("getBookInfos: No access token returned from authmanager to searchedbookstableviewcontroller.")
-            return
-        }
         
-        for (i, book) in searchedBookList.enumerated() {
-            BooksClient().getBookInfo(accessToken: accessToken, bookId: book.book_info, completion: handleGetBookInfo)
-            LibraryClient().getLibrary(accessToken: accessToken, libraryId: book.library, completion: handleGetLibrary)
-
-            DispatchQueue.main.async {
-                self.tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .automatic)
-            }
-        }
-    }
-    
-    private func handleGetBookInfo(_ response: HTTPURLResponse, _ data: Data?) {
-        switch response.statusCode {
-        case 200:
-            if let data = data {
-                let bookInfo = try! JSONDecoder().decode(BookInfo.self, from: data)
-                bookInfoDict[bookInfo.id] = bookInfo
-            }
-        // no permission
-        case 401:
-            print("handleGetBookInfo: no permission.")
-            return
-        // server error
-        default:
-            print("handleGetBookInfo: server error status code - \(response.statusCode)")
-            return
-        }
-    }
-    
     private func handleSearchedBook(_ response: HTTPURLResponse, _ data: Data?) {
         switch response.statusCode {
         case 200:
             if let data = data {
                 searchedBookList = try! JSONDecoder().decode([Book].self, from: data)
-                getBookInfosAndLibraries()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             }
         // no permission
         case 401:
@@ -84,25 +51,6 @@ class SearchedBooksTableViewController: UITableViewController {
         }
     }
     
-    private func handleGetLibrary(_ response: HTTPURLResponse, _ data: Data?) {
-        switch response.statusCode {
-        case 200:
-            if let data = data {
-                let library = try! JSONDecoder().decode(Library.self, from: data)
-                libraryDict[library.id] = library
-            }
-        // no permission
-        case 401:
-            print("handleGetLibrary: no permission.")
-            return
-        // server error
-        default:
-            print("handleGetLibrary: server error status code - \(response.statusCode)")
-            return
-        }
-
-    }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -122,16 +70,11 @@ class SearchedBooksTableViewController: UITableViewController {
 
         // Configure the cell...
         let book = searchedBookList[indexPath.row]
-        guard let bookInfo = bookInfoDict[book.book_info] else {
-            return cell
-        }
-        guard let library = libraryDict[book.library] else {
-            return cell
-        }
-        cell.titleLabel.text = bookInfo.title
-        cell.libraryLabel.text = library.name
-        cell.authorLabel.text = bookInfo.author
-        cell.publisherLabel.text = bookInfo.publisher
+
+        cell.titleLabel.text = book.book_info.title
+        cell.libraryLabel.text = book.library.name
+        cell.authorLabel.text = book.book_info.author
+        cell.publisherLabel.text = book.book_info.publisher
 
         return cell
     }

@@ -36,21 +36,21 @@ struct Token {
         case access
     }
     
-    private func getExpirationTime(of stringToken: String) -> TimeInterval {
-        var payload = String(stringToken.split(separator: ".")[1])
-            .replacingOccurrences(of: "-", with: "+").replacingOccurrences(of: "_", with: "/")
-
-        let length = Double(payload.lengthOfBytes(using: .utf8))
-        let requiredLength = 4 * ceil(length / 4.0)
-        let paddingLength = requiredLength - length
-        if paddingLength > 0 {
-            let padding = "".padding(toLength: Int(paddingLength), withPad: "=", startingAt: 0)
-            payload += padding
+    func getUserId() -> Int? {
+        guard isValid(tokenType: .refresh) else {
+            return nil
         }
-
-        let payloadData = Data(base64Encoded: payload, options: .ignoreUnknownCharacters)!
-        let payloadJson = try! JSONSerialization.jsonObject(with: payloadData, options: []) as! [String: Any]
+        let payload = String(refreshToken!.split(separator: ".")[1])
+        let payloadJson = payload.base64decoding()
+        
+        return payloadJson["user_id"] as? Int
+    }
+    
+    private func getExpirationTime(of stringToken: String) -> TimeInterval {
+        let payload = String(stringToken.split(separator: ".")[1])
+        let payloadJson = payload.base64decoding()
         let exp = payloadJson["exp"] as! Int
+        
         return TimeInterval(exp)
     }
 }

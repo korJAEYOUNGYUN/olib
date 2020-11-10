@@ -18,39 +18,50 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="h5q-R1-49W">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                        <rect key="frame" x="20" y="20" width="280" height="88"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlw-cg-nPE">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKf-5x-d2e">
-                                <rect key="frame" x="0.0" y="28.5" width="320" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="28.5" width="280" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrow Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PS-Ud-QDr">
-                                <rect key="frame" x="0.0" y="57" width="320" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="0.0" y="51" width="280" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Return Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCk-8P-aYx">
-                                <rect key="frame" x="0.0" y="83" width="320" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="0.0" y="73.5" width="280" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="JCk-8P-aYx" secondAttribute="trailing" id="CdV-aX-Lsm"/>
+                            <constraint firstAttribute="trailing" secondItem="zKf-5x-d2e" secondAttribute="trailing" id="Lth-S6-jcu"/>
+                            <constraint firstItem="zKf-5x-d2e" firstAttribute="leading" secondItem="h5q-R1-49W" secondAttribute="leading" id="Qv6-UJ-H4a"/>
+                            <constraint firstItem="5PS-Ud-QDr" firstAttribute="leading" secondItem="h5q-R1-49W" secondAttribute="leading" id="c1b-Bk-7j3"/>
+                            <constraint firstAttribute="trailing" secondItem="nlw-cg-nPE" secondAttribute="trailing" id="dYc-QG-iy1"/>
+                            <constraint firstItem="JCk-8P-aYx" firstAttribute="leading" secondItem="h5q-R1-49W" secondAttribute="leading" id="his-a1-7hf"/>
+                            <constraint firstAttribute="trailing" secondItem="5PS-Ud-QDr" secondAttribute="trailing" id="vet-8I-yUK"/>
+                            <constraint firstItem="nlw-cg-nPE" firstAttribute="leading" secondItem="h5q-R1-49W" secondAttribute="leading" id="via-Zd-mEg"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="h5q-R1-49W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Mt9-5a-4YS"/>
-                    <constraint firstAttribute="trailing" secondItem="h5q-R1-49W" secondAttribute="trailing" id="jx5-F4-xRN"/>
-                    <constraint firstItem="h5q-R1-49W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="tb6-Vu-dX0"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h5q-R1-49W" secondAttribute="bottom" constant="20" symbolic="YES" id="MEG-kU-b5D"/>
+                    <constraint firstItem="h5q-R1-49W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="Mt9-5a-4YS"/>
+                    <constraint firstAttribute="trailing" secondItem="h5q-R1-49W" secondAttribute="trailing" constant="20" symbolic="YES" id="jx5-F4-xRN"/>
+                    <constraint firstItem="h5q-R1-49W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="tb6-Vu-dX0"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

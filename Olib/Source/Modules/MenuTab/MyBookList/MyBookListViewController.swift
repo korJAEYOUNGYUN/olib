@@ -14,17 +14,75 @@ class MyBookListViewController: UIViewController {
     let CURRENT_SECTION = 0
     let PREVIOUS_SECTION = 1
     
-    var currentBorrowingList = [Book]()
-    var previousBorrowingList = [Book]()
+    var currentBorrowingList = [Borrowing]()
+    var previousBorrowingList = [Borrowing]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+
         tableView.register(UINib(nibName: "CurrentBorrowingTableViewCell", bundle: nil), forCellReuseIdentifier: "CurrentBorrowingTableViewCell")
         tableView.register(UINib(nibName: "PreviousBorrowingTableViewCell", bundle: nil), forCellReuseIdentifier: "PreviousBorrowingTableViewCell")
-
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.getBorrowingList()
+        }
     }
     
+    private func getBorrowingList() {
+        let authManager = AuthManager.shared
+        guard let accessToken = authManager.accessToken else {
+            return
+        }
+        
+        let borrowingClient = BorrowingClient()
+        
+        let currentBorrowingQueries = ["user": String(authManager.userId!), "is_returned": "false"]
+        borrowingClient.getBorrowingList(accessToken: accessToken, queries: currentBorrowingQueries, completion: handleGetCurrentBorrowingList)
+        
+        let previousBorrowingQueries = ["user": String(authManager.userId!), "is_returned": "true"]
+        borrowingClient.getBorrowingList(accessToken: accessToken, queries: previousBorrowingQueries, completion: handleGetPreviousBorrowingList)
+    }
+    
+    private func handleGetCurrentBorrowingList(response: HTTPURLResponse, data: Data?) {
+        switch response.statusCode {
+        case 200:
+            if let data = data {
+                currentBorrowingList = try! JSONDecoder().decode([Borrowing].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadSections(IndexSet(integer: self.CURRENT_SECTION), with: .automatic)
+                }
+            }
+        // no permission
+        case 401:
+            return
+        // server error
+        default:
+            return
+        }
+    }
+    
+    private func handleGetPreviousBorrowingList(response: HTTPURLResponse, data: Data?) {
+        switch response.statusCode {
+        case 200:
+            if let data = data {
+                previousBorrowingList = try! JSONDecoder().decode([Borrowing].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadSections(IndexSet(integer: self.PREVIOUS_SECTION), with: .automatic)
+                }
+            }
+        // no permission
+        case 401:
+            return
+        // server error
+        default:
+            return
+        }
+    }
 }
