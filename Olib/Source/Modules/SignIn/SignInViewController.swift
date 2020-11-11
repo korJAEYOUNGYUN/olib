@@ -13,10 +13,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailWarningLabel: UILabel!
     @IBOutlet weak var passwordWarningLabel: UILabel!
-    
-    private let EMAIL_INVALID = "ex) abc@abc.com"
-    private let PASSWORD_INVALID = "Password must over 8 letters."
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,33 +22,20 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func emailEditingChanged(_ sender: UITextField) {
-        if sender.text!.isValidEmail() {
-            hideWarning(label: emailWarningLabel)
-        } else {
-            showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
-        }
+        _ = checkEmailTextField(sender)
     }
     
     @IBAction func passwordEditingChanged(_ sender: UITextField) {
-        if sender.text!.isValidPassword() {
-            hideWarning(label: passwordWarningLabel)
-        } else {
-            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
-        }
+        _ = checkPasswordTextField(sender)
     }
     
     @IBAction func didPresssignInButton(_ sender: UIButton) {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        
-        if !email.isValidEmail() {
-            showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
+        guard checkEmailTextField(emailTextField), checkPasswordTextField(passwordTextField) else {
             return
         }
-        if !password.isValidPassword() {
-            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
-            return
-        }
+    
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
         
         authenticate(with: email, password: password)
     }
@@ -96,24 +80,23 @@ class SignInViewController: UIViewController {
         
     }
     
-    private func hideWarning(label: UILabel) {
-        UIView.animate(withDuration: 0.5) {
-            label.isHidden = true
-            
-            self.view.layoutIfNeeded()
+    private func checkEmailTextField(_ textField: UITextField) -> Bool {
+        if textField.text!.isValidEmail() {
+            hideWarning(label: emailWarningLabel)
+            return true
+        } else {
+            showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
+            return false
         }
     }
     
-    private func showWarning(label: UILabel, msg: String) {
-        UIView.animate(withDuration: 0.5) {
-            label.text = msg
-            label.isHidden = false
-            
-            self.view.layoutIfNeeded()
+    private func checkPasswordTextField(_ textField: UITextField) -> Bool {
+        if textField.text!.isValidPassword() {
+            hideWarning(label: passwordWarningLabel)
+            return true
+        } else {
+            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
+            return false
         }
     }
-    
-    
-    
-    
 }

@@ -35,7 +35,7 @@ struct AuthClient {
             }
             
             completion(response, data)
-        }
+        }.resume()
     }
     
     func createUser(credentials: [String: String], completion: @escaping (HTTPURLResponse, Data?) -> Void) {
@@ -49,6 +49,6 @@ struct AuthClient {
             }
             
             completion(response, data)
-        }
+        }.resume()
     }
 }

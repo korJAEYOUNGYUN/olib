@@ -54,6 +54,7 @@
 		002C993E25592E0800DA1AD9 /* DateOnlyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C993D25592E0800DA1AD9 /* DateOnlyFormatter.swift */; };
 		002C994D255A825E00DA1AD9 /* String+Base64Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */; };
 		002C9951255A829000DA1AD9 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9950255A829000DA1AD9 /* AuthClient.swift */; };
+		002C9954255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		002C993D25592E0800DA1AD9 /* DateOnlyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOnlyFormatter.swift; sourceTree = "<group>"; };
 		002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64Decoding.swift"; sourceTree = "<group>"; };
 		002C9950255A829000DA1AD9 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
+		002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UILabelWarning.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +216,7 @@
 			children = (
 				002C993C255928C300DA1AD9 /* Helpers */,
 				002C98C9254FDCA600DA1AD9 /* Application */,
-				002C98CA254FDD6700DA1AD9 /* Core Additions */,
+				002C98CA254FDD6700DA1AD9 /* Extensions */,
 				002C98C8254FDC1C00DA1AD9 /* Models */,
 				002C98C6254FDB1900DA1AD9 /* Modules */,
 				002C98F2255191AD00DA1AD9 /* Manager */,
@@ -269,21 +271,22 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		002C98CA254FDD6700DA1AD9 /* Core Additions */ = {
+		002C98CA254FDD6700DA1AD9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				002C98CB254FDD7C00DA1AD9 /* Utilities */,
+				002C98CB254FDD7C00DA1AD9 /* String */,
+				002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */,
 			);
-			path = "Core Additions";
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		002C98CB254FDD7C00DA1AD9 /* Utilities */ = {
+		002C98CB254FDD7C00DA1AD9 /* String */ = {
 			isa = PBXGroup;
 			children = (
 				002C988F2535F0C300DA1AD9 /* String+ValidateUserInfo.swift */,
 				002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */,
 			);
-			path = Utilities;
+			path = String;
 			sourceTree = "<group>";
 		};
 		002C98D3255004AE00DA1AD9 /* Networking */ = {
@@ -475,6 +478,7 @@
 				002C98EC2551826300DA1AD9 /* PostTokenRequest.swift in Sources */,
 				002C990E2554416400DA1AD9 /* Book.swift in Sources */,
 				002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */,
+				002C9954255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift in Sources */,
 				002C98DE2551249400DA1AD9 /* Token.swift in Sources */,
 				002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */,
 				002C98992536C4F400DA1AD9 /* SearchedBooksTableViewController.swift in Sources */,

@@ -25,6 +25,7 @@ class AuthManager {
     
     func authenticate(with email: String, password: String, completion: @escaping (HTTPURLResponse) -> Void) {
         let credentials = ["username": email, "password": password]
+        
         AuthClient().getTokens(credentials: credentials) { (response, data) in
             if response.statusCode == 200, let data = data {
                 self.handleAuthenticated(data: data)
@@ -54,8 +55,9 @@ class AuthManager {
     
     func signUp(with email: String, password: String, completion: @escaping (HTTPURLResponse) -> Void) {
         let credentials = ["username": email, "password": password]
+        
         AuthClient().createUser(credentials: credentials) { (response, data) in
-            if response.statusCode == 200, let data = data {
+            if response.statusCode == 201, let data = data {
                 self.handleAuthenticated(data: data)
             }
             

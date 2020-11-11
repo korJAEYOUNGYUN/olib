@@ -45,12 +45,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cfY-nR-Hqt">
                                 <rect key="frame" x="29" y="372" width="365" height="56.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rPb-6T-rCM">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password again" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rPb-6T-rCM">
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
-                                            <action selector="passwordEditingChanged:" destination="vZY-aL-SHH" eventType="editingChanged" id="7zz-YE-emO"/>
+                                            <action selector="passwordEditingChanged:" destination="vZY-aL-SHH" eventType="editingDidEnd" id="5d0-zz-OqJ"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfE-jT-9h4">
@@ -77,12 +77,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9an-kb-gaE">
                                 <rect key="frame" x="29" y="275" width="365" height="56.5"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgx-1d-and">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgx-1d-and">
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         <connections>
-                                            <action selector="nameEditingChanged:" destination="vZY-aL-SHH" eventType="editingChanged" id="5c9-2r-h5X"/>
+                                            <action selector="passwordEditingChanged:" destination="vZY-aL-SHH" eventType="editingDidEnd" id="Ph7-Vv-6qH"/>
                                         </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1B-kc-cgu">
@@ -103,7 +103,7 @@
                                 <rect key="frame" x="177" y="468.5" width="60" height="30"/>
                                 <state key="normal" title="SIGN UP"/>
                                 <connections>
-                                    <action selector="signUp:" destination="vZY-aL-SHH" eventType="touchUpInside" id="agz-AE-2sT"/>
+                                    <action selector="didPressSignUpButton:" destination="vZY-aL-SHH" eventType="touchUpInside" id="PiL-mc-fPe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,10 +128,10 @@
                     <connections>
                         <outlet property="emailTextField" destination="Oco-b4-9Fj" id="ePv-9a-2kh"/>
                         <outlet property="emailWarningLabel" destination="6Hk-ME-xwY" id="ell-NY-4WK"/>
-                        <outlet property="nameTextField" destination="hgx-1d-and" id="VJH-Qn-1rH"/>
-                        <outlet property="nameWarningLabel" destination="t1B-kc-cgu" id="Z4R-O9-mIk"/>
-                        <outlet property="passwordTextField" destination="rPb-6T-rCM" id="xKv-In-mh2"/>
-                        <outlet property="passwordWarningLabel" destination="XfE-jT-9h4" id="C6E-06-MkL"/>
+                        <outlet property="password2TextField" destination="rPb-6T-rCM" id="nRb-g8-9aD"/>
+                        <outlet property="password2WarningLabel" destination="XfE-jT-9h4" id="Cni-dJ-8x6"/>
+                        <outlet property="passwordTextField" destination="hgx-1d-and" id="ofC-JT-GHU"/>
+                        <outlet property="passwordWarningLabel" destination="t1B-kc-cgu" id="5Zd-ax-Ysn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeL-yf-Ft7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
