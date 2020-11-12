@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordWarningLabel: UILabel!
     @IBOutlet weak var password2TextField: UITextField!
     @IBOutlet weak var password2WarningLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class SignUpViewController: UIViewController {
         let password = passwordTextField.text!
         let password2 = password2TextField.text!
         if password != password2 {
+            let alert = UIAlertController(title: "Password not equal", message: "Password1 and password2 are not equal.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
             return
         }
 
@@ -40,10 +45,12 @@ class SignUpViewController: UIViewController {
     }
     
     private func signUp(with email: String, password: String) {
+        startLoading()
         AuthManager.shared.signUp(with: email, password: password, completion: handleSignUpResponse)
     }
     
     private func handleSignUpResponse(_ response: HTTPURLResponse) {
+        stopLoading()
         switch response.statusCode {
         case 201:
             DispatchQueue.main.async {
@@ -52,9 +59,17 @@ class SignUpViewController: UIViewController {
                 self.present(menuTabController, animated: true, completion: nil)
             }
         case 400:
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Email already exists", message: "A user with that email already exists.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         default:
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Network error", message: "Please try it later.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -95,6 +110,16 @@ class SignUpViewController: UIViewController {
                 showWarning(label: password2WarningLabel, msg: .PASSWORD_INVALID)
             }
             return false
+        }
+    }
+    
+    private func startLoading() {
+        signUpButton.isEnabled = false
+    }
+    
+    private func stopLoading() {
+        DispatchQueue.main.async {
+            self.signUpButton.isEnabled = true
         }
     }
 }

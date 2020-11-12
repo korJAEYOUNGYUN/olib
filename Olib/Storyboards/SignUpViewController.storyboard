@@ -132,6 +132,7 @@
                         <outlet property="password2WarningLabel" destination="XfE-jT-9h4" id="Cni-dJ-8x6"/>
                         <outlet property="passwordTextField" destination="hgx-1d-and" id="ofC-JT-GHU"/>
                         <outlet property="passwordWarningLabel" destination="t1B-kc-cgu" id="5Zd-ax-Ysn"/>
+                        <outlet property="signUpButton" destination="bFY-VT-UuQ" id="GdK-Ae-VUo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeL-yf-Ft7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

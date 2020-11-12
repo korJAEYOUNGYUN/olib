@@ -60,10 +60,18 @@ class MyBookListViewController: UIViewController {
             }
         // no permission
         case 401:
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Permissioin error", message: "Need to sign in.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         // server error
         default:
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Network error", message: "Please try it later.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -79,10 +87,18 @@ class MyBookListViewController: UIViewController {
             }
         // no permission
         case 401:
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Permissioin error", message: "Need to sign in.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         // server error
         default:
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Network error", message: "Please try it later.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
 }

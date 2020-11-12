@@ -136,6 +136,7 @@
                         <outlet property="authorTextField" destination="VNQ-n2-Nvq" id="FK6-f6-IwP"/>
                         <outlet property="libraryTextField" destination="blD-5h-oUk" id="gmq-GO-uCR"/>
                         <outlet property="publisherTextField" destination="fXE-9M-MYg" id="XXT-86-keB"/>
+                        <outlet property="searchButton" destination="OPj-cd-CEg" id="S9l-iH-YYW"/>
                         <outlet property="titleTextField" destination="dNT-5U-i8P" id="U90-z9-Qot"/>
                         <outlet property="yearTextField" destination="beQ-FN-hOP" id="ZP2-e6-gZI"/>
                     </connections>

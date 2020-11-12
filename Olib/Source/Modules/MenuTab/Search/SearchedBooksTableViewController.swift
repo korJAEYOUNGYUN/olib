@@ -42,15 +42,20 @@ class SearchedBooksTableViewController: UITableViewController {
             }
         // no permission
         case 401:
-            print("handleSearchedBook: no permission.")
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Permission error", message: "Need to sign in.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         // server error
         default:
-            print("handleSearchedBook: server error status code - \(response.statusCode)")
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Network error", message: "Please try it later.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
-    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

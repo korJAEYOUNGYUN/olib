@@ -102,6 +102,8 @@
                         <outlet property="emailWarningLabel" destination="qCa-9M-v7N" id="Pys-l7-csj"/>
                         <outlet property="passwordTextField" destination="nWj-9s-dVJ" id="glA-Kl-EeV"/>
                         <outlet property="passwordWarningLabel" destination="t5j-Pn-u9c" id="OIf-5R-Men"/>
+                        <outlet property="signInButton" destination="QSp-ii-1XJ" id="W1v-15-eLh"/>
+                        <outlet property="signUpButton" destination="jUZ-EW-tjR" id="fPv-LP-JKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

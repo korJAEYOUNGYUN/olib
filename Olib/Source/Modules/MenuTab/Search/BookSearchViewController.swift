@@ -14,6 +14,7 @@ class BookSearchViewController: UIViewController {
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var publisherTextField: UITextField!
     @IBOutlet weak var yearTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class BookSearchViewController: UIViewController {
         }
     }
     
-    func getQueries() -> [String: String]? {
+    private func getQueries() -> [String: String]? {
         var queries = [String: String]()
         
         if let library = libraryTextField.text {

@@ -13,7 +13,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailWarningLabel: UILabel!
     @IBOutlet weak var passwordWarningLabel: UILabel!
-        
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,10 +60,18 @@ class SignInViewController: UIViewController {
             }
         case 401:
             // alert no account with the given credentials
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Signin Failed", message: "There is no user matched from given credentials.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         default:
             // server error
-            return
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Network error", message: "Please try it later.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -73,11 +83,15 @@ class SignInViewController: UIViewController {
     }
     
     private func startLoading() {
-        
+        signInButton.isEnabled = false
+        signUpButton.isEnabled = false
     }
     
     private func stopLoading() {
-        
+        DispatchQueue.main.async {
+            self.signInButton.isEnabled = true
+            self.signUpButton.isEnabled = true
+        }
     }
     
     private func checkEmailTextField(_ textField: UITextField) -> Bool {
