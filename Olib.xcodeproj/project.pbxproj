@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,6 +55,7 @@
 		002C994D255A825E00DA1AD9 /* String+Base64Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */; };
 		002C9951255A829000DA1AD9 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9950255A829000DA1AD9 /* AuthClient.swift */; };
 		002C9954255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */; };
+		BE10B617B87EE8280CCFA4B1 /* Pods_Olib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597B34CE8B49908FDD796204 /* Pods_Olib.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +109,9 @@
 		002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64Decoding.swift"; sourceTree = "<group>"; };
 		002C9950255A829000DA1AD9 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UILabelWarning.swift"; sourceTree = "<group>"; };
+		3D5C9129A46D4D3FAD024B20 /* Pods-Olib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olib.debug.xcconfig"; path = "Target Support Files/Pods-Olib/Pods-Olib.debug.xcconfig"; sourceTree = "<group>"; };
+		597B34CE8B49908FDD796204 /* Pods_Olib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Olib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E685DD0D7104E40598338EF2 /* Pods-Olib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olib.release.xcconfig"; path = "Target Support Files/Pods-Olib/Pods-Olib.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE10B617B87EE8280CCFA4B1 /* Pods_Olib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +131,8 @@
 			children = (
 				002C986D2534837400DA1AD9 /* Olib */,
 				002C986C2534837400DA1AD9 /* Products */,
+				4F4E4420745961F64D7AEA70 /* Pods */,
+				0BFA711487284D6A890102A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,8 +147,14 @@
 		002C986D2534837400DA1AD9 /* Olib */ = {
 			isa = PBXGroup;
 			children = (
+				002C98C9254FDCA600DA1AD9 /* Application */,
+				002C98CA254FDD6700DA1AD9 /* Extensions */,
+				002C993C255928C300DA1AD9 /* Helpers */,
+				002C98F2255191AD00DA1AD9 /* Manager */,
+				002C98C8254FDC1C00DA1AD9 /* Models */,
+				002C98C6254FDB1900DA1AD9 /* Modules */,
+				002C98D3255004AE00DA1AD9 /* Networking */,
 				002C98C4254FDB0200DA1AD9 /* Resources */,
-				002C98C5254FDB1100DA1AD9 /* Source */,
 				002C98C7254FDBA100DA1AD9 /* Storyboards */,
 				002C98BE254FD53A00DA1AD9 /* Supporting Files */,
 			);
@@ -209,20 +222,6 @@
 				002C98772534837500DA1AD9 /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		002C98C5254FDB1100DA1AD9 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				002C993C255928C300DA1AD9 /* Helpers */,
-				002C98C9254FDCA600DA1AD9 /* Application */,
-				002C98CA254FDD6700DA1AD9 /* Extensions */,
-				002C98C8254FDC1C00DA1AD9 /* Models */,
-				002C98C6254FDB1900DA1AD9 /* Modules */,
-				002C98F2255191AD00DA1AD9 /* Manager */,
-				002C98D3255004AE00DA1AD9 /* Networking */,
-			);
-			path = Source;
 			sourceTree = "<group>";
 		};
 		002C98C6254FDB1900DA1AD9 /* Modules */ = {
@@ -385,6 +384,23 @@
 			path = Borrowing;
 			sourceTree = "<group>";
 		};
+		0BFA711487284D6A890102A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				597B34CE8B49908FDD796204 /* Pods_Olib.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F4E4420745961F64D7AEA70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D5C9129A46D4D3FAD024B20 /* Pods-Olib.debug.xcconfig */,
+				E685DD0D7104E40598338EF2 /* Pods-Olib.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,9 +408,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 002C987F2534837500DA1AD9 /* Build configuration list for PBXNativeTarget "Olib" */;
 			buildPhases = (
+				F266ACBAA54374551F56156F /* [CP] Check Pods Manifest.lock */,
 				002C98672534837400DA1AD9 /* Sources */,
 				002C98682534837400DA1AD9 /* Frameworks */,
 				002C98692534837400DA1AD9 /* Resources */,
+				852203E564ECBEA2A3A8D181 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -456,6 +474,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		852203E564ECBEA2A3A8D181 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Olib/Pods-Olib-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Olib/Pods-Olib-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Olib/Pods-Olib-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F266ACBAA54374551F56156F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Olib-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		002C98672534837400DA1AD9 /* Sources */ = {
@@ -643,6 +703,7 @@
 		};
 		002C98802534837500DA1AD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D5C9129A46D4D3FAD024B20 /* Pods-Olib.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -661,6 +722,7 @@
 		};
 		002C98812534837500DA1AD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E685DD0D7104E40598338EF2 /* Pods-Olib.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
