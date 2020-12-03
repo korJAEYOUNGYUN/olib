@@ -22,9 +22,6 @@ class SignInViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        emailWarningLabel.isHidden = true
-//        passwordWarningLabel.isHidden = true
         
         // for test
         viewModel = SignInViewModel()
@@ -63,21 +60,13 @@ class SignInViewController: UIViewController, ViewModelBindableType {
                 }
             })
             .disposed(by: rx.disposeBag)
-    }
-    
-    @IBAction func emailEditingChanged(_ sender: UITextField) {
-//        _ = checkEmailTextField(sender)
-    }
-    
-    @IBAction func passwordEditingChanged(_ sender: UITextField) {
-//        _ = checkPasswordTextField(sender)
+        
+        Observable.combineLatest(viewModel.emailValidation, viewModel.passwordValidation) { $0 && $1 }
+            .bind(to: signInButton.rx.isEnabled)
+            .disposed(by: rx.disposeBag)
     }
     
     @IBAction func didPresssignInButton(_ sender: UIButton) {
-        guard checkEmailTextField(emailTextField), checkPasswordTextField(passwordTextField) else {
-            return
-        }
-    
         let email = emailTextField.text!
         let password = passwordTextField.text!
         
@@ -85,13 +74,13 @@ class SignInViewController: UIViewController, ViewModelBindableType {
     }
     
     private func authenticate(with email: String, password: String) {
-        startLoading()
+//        startLoading()
         
         AuthManager.shared.authenticate(with: email, password: password, completion: handleAuthenticationResponse)
     }
     
     func handleAuthenticationResponse(_ response: HTTPURLResponse) {
-        stopLoading()
+//        stopLoading()
         
         switch response.statusCode {
         case 200:
@@ -122,37 +111,5 @@ class SignInViewController: UIViewController, ViewModelBindableType {
         let signUpVC = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
         signUpVC.modalPresentationStyle = .fullScreen
         self.present(signUpVC, animated: true, completion: nil)
-    }
-    
-    private func startLoading() {
-        signInButton.isEnabled = false
-        signUpButton.isEnabled = false
-    }
-    
-    private func stopLoading() {
-        DispatchQueue.main.async {
-            self.signInButton.isEnabled = true
-            self.signUpButton.isEnabled = true
-        }
-    }
-    
-    private func checkEmailTextField(_ textField: UITextField) -> Bool {
-        if textField.text!.isValidEmail() {
-            hideWarning(label: emailWarningLabel)
-            return true
-        } else {
-            showWarning(label: emailWarningLabel, msg: .EMAIL_INVALID)
-            return false
-        }
-    }
-    
-    private func checkPasswordTextField(_ textField: UITextField) -> Bool {
-        if textField.text!.isValidPassword() {
-            hideWarning(label: passwordWarningLabel)
-            return true
-        } else {
-            showWarning(label: passwordWarningLabel, msg: .PASSWORD_INVALID)
-            return false
-        }
     }
 }
