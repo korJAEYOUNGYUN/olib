@@ -52,7 +52,7 @@ class MyBookListViewController: UIViewController {
         switch response.statusCode {
         case 200:
             if let data = data {
-                currentBorrowingList = try! JSONDecoder().decode([Borrowing].self, from: data)
+                currentBorrowingList = Borrowing.parse(data: data)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadSections(IndexSet(integer: self.CURRENT_SECTION), with: .automatic)
@@ -79,7 +79,7 @@ class MyBookListViewController: UIViewController {
         switch response.statusCode {
         case 200:
             if let data = data {
-                previousBorrowingList = try! JSONDecoder().decode([Borrowing].self, from: data)
+                previousBorrowingList = Borrowing.parse(data: data)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadSections(IndexSet(integer: self.PREVIOUS_SECTION), with: .automatic)

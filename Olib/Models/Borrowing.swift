@@ -16,4 +16,17 @@ struct Borrowing: Codable {
     let due: String?
     let returned_at: String?
     let is_returned: Bool?
+    
+    // for list
+    static func parse(data: Data) -> [Borrowing] {
+        var borrowingList = [Borrowing]()
+        
+        do {
+            borrowingList = try JSONDecoder().decode([Borrowing].self, from: data)
+        } catch {
+            print(error)
+        }
+        
+        return borrowingList 
+    }
 }
