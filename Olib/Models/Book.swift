@@ -17,8 +17,10 @@ struct Book: Codable {
     
     // for list
     static func parse(data: Data) -> [Book] {
+        var bookList = [Book]()
+        
         do {
-            let bookList = JSONDecoder().decode([Book].self, from: data)
+            bookList = try JSONDecoder().decode([Book].self, from: data)
         } catch {
             print(error)
         }
@@ -27,9 +29,11 @@ struct Book: Codable {
     }
     
     // for retrieve
-    static func parse(data: Data) -> Book {
+    static func parse(data: Data) -> Book? {
+        var book: Book?
+        
         do {
-            let book = JSONDecoder().decode(Book.self, from: data)
+            book = try JSONDecoder().decode(Book.self, from: data)
         } catch {
             print(error)
         }
