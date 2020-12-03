@@ -150,7 +150,7 @@
 				002C98C9254FDCA600DA1AD9 /* Application */,
 				002C98CA254FDD6700DA1AD9 /* Extensions */,
 				002C993C255928C300DA1AD9 /* Helpers */,
-				002C98F2255191AD00DA1AD9 /* Manager */,
+				002C98F2255191AD00DA1AD9 /* Managers */,
 				002C98C8254FDC1C00DA1AD9 /* Models */,
 				002C98C6254FDB1900DA1AD9 /* Modules */,
 				002C98D3255004AE00DA1AD9 /* Networking */,
@@ -312,13 +312,13 @@
 			path = Requests;
 			sourceTree = "<group>";
 		};
-		002C98F2255191AD00DA1AD9 /* Manager */ = {
+		002C98F2255191AD00DA1AD9 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				002C98E42551282600DA1AD9 /* AuthManager.swift */,
 				002C98F3255195CB00DA1AD9 /* ServerManager.swift */,
 			);
-			path = Manager;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		002C99032553B37E00DA1AD9 /* Clients */ = {
