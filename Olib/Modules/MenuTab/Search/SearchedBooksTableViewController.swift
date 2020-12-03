@@ -34,7 +34,7 @@ class SearchedBooksTableViewController: UITableViewController {
         switch response.statusCode {
         case 200:
             if let data = data {
-                searchedBookList = try! JSONDecoder().decode([Book].self, from: data)
+                searchedBookList = Book.parse(data: data)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
