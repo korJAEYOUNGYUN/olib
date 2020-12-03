@@ -27,6 +27,6 @@ struct Borrowing: Codable {
             print(error)
         }
         
-        return borrowingList 
+        return borrowingList
     }
 }

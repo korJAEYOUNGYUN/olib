@@ -8,4 +8,5 @@ target 'Olib' do
   # Pods for Olib
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'NSObject+Rx'
 end

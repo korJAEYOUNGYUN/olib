@@ -55,6 +55,7 @@
 		002C994D255A825E00DA1AD9 /* String+Base64Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */; };
 		002C9951255A829000DA1AD9 /* AuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9950255A829000DA1AD9 /* AuthClient.swift */; };
 		002C9954255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */; };
+		002C9A0A2578A64900DA1AD9 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A092578A64900DA1AD9 /* SignInViewModel.swift */; };
 		BE10B617B87EE8280CCFA4B1 /* Pods_Olib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597B34CE8B49908FDD796204 /* Pods_Olib.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		002C994C255A825E00DA1AD9 /* String+Base64Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64Decoding.swift"; sourceTree = "<group>"; };
 		002C9950255A829000DA1AD9 /* AuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthClient.swift; sourceTree = "<group>"; };
 		002C9953255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UILabelWarning.swift"; sourceTree = "<group>"; };
+		002C9A092578A64900DA1AD9 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3D5C9129A46D4D3FAD024B20 /* Pods-Olib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olib.debug.xcconfig"; path = "Target Support Files/Pods-Olib/Pods-Olib.debug.xcconfig"; sourceTree = "<group>"; };
 		597B34CE8B49908FDD796204 /* Pods_Olib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Olib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E685DD0D7104E40598338EF2 /* Pods-Olib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olib.release.xcconfig"; path = "Target Support Files/Pods-Olib/Pods-Olib.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				002C988525359F3800DA1AD9 /* SignInViewController.swift */,
+				002C9A092578A64900DA1AD9 /* SignInViewModel.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				002C990E2554416400DA1AD9 /* Book.swift in Sources */,
 				002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */,
 				002C9954255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift in Sources */,
+				002C9A0A2578A64900DA1AD9 /* SignInViewModel.swift in Sources */,
 				002C98DE2551249400DA1AD9 /* Token.swift in Sources */,
 				002C98892535E35600DA1AD9 /* SignUpViewController.swift in Sources */,
 				002C98992536C4F400DA1AD9 /* SearchedBooksTableViewController.swift in Sources */,
