@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, ViewModelBindableType {
+    
+    var viewModel: SignInViewModel!
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,12 +23,35 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        emailWarningLabel.isHidden = true
+//        emailWarningLabel.isHidden = true
         passwordWarningLabel.isHidden = true
+        
+        viewModel = SignInViewModel()
+        bindUI()
+    }
+    
+    func bindUI() {
+        emailTextField.rx.text
+            .orEmpty
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(viewModel.email)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.emailValidation
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { isValid in
+                UIView.animate(withDuration: 0.5) { [weak self] in
+                    self?.emailWarningLabel.isHidden = isValid
+                }
+            })
+            .disposed(by: rx.disposeBag)
+        
+        
     }
     
     @IBAction func emailEditingChanged(_ sender: UITextField) {
-        _ = checkEmailTextField(sender)
+//        _ = checkEmailTextField(sender)
     }
     
     @IBAction func passwordEditingChanged(_ sender: UITextField) {

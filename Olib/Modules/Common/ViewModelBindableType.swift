@@ -11,7 +11,7 @@ protocol ViewModelBindableType {
     
     associatedtype ViewModelType: BaseViewModel
     
-    var viewModel: ViewModelType { get set }
+    var viewModel: ViewModelType! { get set }
     
     func bindUI()
 }
