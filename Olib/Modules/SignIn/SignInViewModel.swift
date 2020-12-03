@@ -10,8 +10,11 @@ import RxSwift
 
 class SignInViewModel: BaseViewModel {
     
-    let email = BehaviorSubject(value: "")
+    let email = PublishSubject<String>()
     let emailValidation = BehaviorSubject(value: false)
+    
+    let password = PublishSubject<String>()
+    let passwordValidation = BehaviorSubject(value: false)
     
     override init() {
         super.init()
@@ -19,6 +22,11 @@ class SignInViewModel: BaseViewModel {
         email
             .map { $0.isValidEmail() }
             .subscribe(emailValidation)
+            .disposed(by: disposeBag)
+        
+        password
+            .map { $0.isValidPassword() }
+            .subscribe(passwordValidation)
             .disposed(by: disposeBag)
     }
 }

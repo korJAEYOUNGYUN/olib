@@ -24,8 +24,9 @@ class SignInViewController: UIViewController, ViewModelBindableType {
         super.viewDidLoad()
 
 //        emailWarningLabel.isHidden = true
-        passwordWarningLabel.isHidden = true
+//        passwordWarningLabel.isHidden = true
         
+        // for test
         viewModel = SignInViewModel()
         bindUI()
     }
@@ -47,7 +48,21 @@ class SignInViewController: UIViewController, ViewModelBindableType {
             })
             .disposed(by: rx.disposeBag)
         
+        passwordTextField.rx.text
+            .orEmpty
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe(viewModel.password)
+            .disposed(by: rx.disposeBag)
         
+        viewModel.passwordValidation
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { isValid in
+                UIView.animate(withDuration: 0.5) { [weak self] in
+                    self?.passwordWarningLabel.isHidden = isValid
+                }
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     @IBAction func emailEditingChanged(_ sender: UITextField) {
@@ -55,7 +70,7 @@ class SignInViewController: UIViewController, ViewModelBindableType {
     }
     
     @IBAction func passwordEditingChanged(_ sender: UITextField) {
-        _ = checkPasswordTextField(sender)
+//        _ = checkPasswordTextField(sender)
     }
     
     @IBAction func didPresssignInButton(_ sender: UIButton) {
