@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct BookClient {
         
@@ -35,5 +36,16 @@ struct BookClient {
             
             completion(response, data)
         }.resume()
+    }
+}
+
+extension BookClient {
+    
+    func rxSearchBooks(accessToken: String, queries: [String: String]?) -> Observable<Data> {
+        guard let request = GetBookListRequest(accessToken: accessToken).request(for: URL(string: ServerManager.shared.serverURL)!, with: queries) else {
+            return Observable.error(APIRequestError.invalidURL)
+        }
+        
+        return URLSession.shared.rx.data(request: request)
     }
 }
