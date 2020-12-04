@@ -29,4 +29,15 @@ class SignInViewModel: BaseViewModel {
             .subscribe(passwordValidation)
             .disposed(by: disposeBag)
     }
+    
+    // TODO: dismiss when authentication success
+    func authenticate(with email: String, password: String) {
+        AuthManager.shared.rxAuthenticate(with: email, password: password)
+            .subscribe { (response) in
+                print(response)
+            } onError: { (error) in
+                print(error)
+            }
+            .disposed(by: disposeBag)
+    }
 }

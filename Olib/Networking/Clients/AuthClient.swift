@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 struct AuthClient {
     
@@ -50,5 +52,16 @@ struct AuthClient {
             
             completion(response, data)
         }.resume()
+    }
+}
+
+extension AuthClient {
+    
+    func rxGetTokens(credentials: [String: String]) -> Observable<(response: HTTPURLResponse, data: Data)> {
+        guard let request = PostTokenRequest(credentials: credentials).request(for: URL(string: ServerManager.shared.serverURL)!) else {
+            return Observable.error(APIRequestError.invalidURL)
+        }
+        
+        return URLSession.shared.rx.response(request: request)
     }
 }

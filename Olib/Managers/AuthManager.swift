@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class AuthManager {
     
@@ -63,5 +64,20 @@ class AuthManager {
             
             completion(response)
         }
+    }
+}
+
+extension AuthManager {
+    
+    func rxAuthenticate(with email: String, password: String) -> Observable<HTTPURLResponse> {
+        let credentials = ["username": email, "password": password]
+
+        return AuthClient().rxGetTokens(credentials: credentials)
+            .do(onNext: { [weak self] response, data in
+                if response.statusCode == 201 {
+                    self?.handleAuthenticated(data: data)
+                }
+            })
+            .map { response, data in response }
     }
 }
