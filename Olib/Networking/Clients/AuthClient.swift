@@ -64,4 +64,12 @@ extension AuthClient {
         
         return URLSession.shared.rx.response(request: request)
     }
+    
+    func rxCreateUser(credentials: [String: String]) -> Observable<(response: HTTPURLResponse, data: Data)> {
+        guard let request = PostUserRequest(credentials: credentials).request(for: URL(string: ServerManager.shared.serverURL)!) else {
+            return Observable.error(APIRequestError.invalidURL)
+        }
+        
+        return URLSession.shared.rx.response(request: request)
+    }
 }

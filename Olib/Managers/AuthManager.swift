@@ -78,6 +78,18 @@ extension AuthManager {
                     self?.handleAuthenticated(data: data)
                 }
             })
-            .map { response, data in response }
+            .map { $0.0 }
+    }
+    
+    func rxSignUp(with email: String, password: String) -> Observable<HTTPURLResponse> {
+        let credentials = ["username": email, "password": password]
+        
+        return AuthClient().rxCreateUser(credentials: credentials)
+            .do(onNext: { [weak self] response, data in
+                if response.statusCode == 201 {
+                    self?.handleAuthenticated(data: data)
+                }
+            })
+            .map { $0.0 }
     }
 }

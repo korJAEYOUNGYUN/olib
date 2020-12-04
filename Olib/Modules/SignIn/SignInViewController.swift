@@ -23,7 +23,7 @@ class SignInViewController: UIViewController, ViewModelBindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // for test
+        //FIXME: for test
         viewModel = SignInViewModel()
         bindUI()
     }
