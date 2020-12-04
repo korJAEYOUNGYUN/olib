@@ -64,9 +64,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSp-ii-1XJ">
                                 <rect key="frame" x="180" y="387" width="54" height="30"/>
                                 <state key="normal" title="SIGN IN"/>
-                                <connections>
-                                    <action selector="didPresssignInButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QwH-cd-sUf"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUZ-EW-tjR">
                                 <rect key="frame" x="110" y="462" width="194" height="30"/>
