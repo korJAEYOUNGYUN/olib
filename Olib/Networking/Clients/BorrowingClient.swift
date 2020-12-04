@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct BorrowingClient {
     
@@ -50,5 +51,16 @@ struct BorrowingClient {
             completion(response, data)
         }.resume()
 
+    }
+}
+
+extension BorrowingClient {
+    
+    func rxGetBorrowingList(accessToken: String, queries: [String: String]?) -> Observable<Data> {
+        guard let request = GetBorrowingListRequest(accessToken: accessToken).request(for: URL(string: ServerManager.shared.serverURL)!, with: queries) else {
+            return Observable.error(APIRequestError.invalidURL)
+        }
+        
+        return URLSession.shared.rx.data(request: request)
     }
 }
