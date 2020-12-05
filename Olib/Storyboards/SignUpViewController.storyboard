@@ -24,9 +24,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                                        <connections>
-                                            <action selector="emailEditingChanged:" destination="vZY-aL-SHH" eventType="editingChanged" id="06m-EC-Rwl"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Hk-ME-xwY">
                                         <rect key="frame" x="0.0" y="42" width="365" height="14.5"/>
@@ -49,9 +46,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                        <connections>
-                                            <action selector="passwordEditingChanged:" destination="vZY-aL-SHH" eventType="editingDidEnd" id="5d0-zz-OqJ"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfE-jT-9h4">
                                         <rect key="frame" x="0.0" y="42" width="365" height="14.5"/>
@@ -70,9 +64,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13G-XS-oID">
                                 <rect key="frame" x="177.5" y="538.5" width="59" height="30"/>
                                 <state key="normal" title="CANCEL"/>
-                                <connections>
-                                    <action selector="cancel:" destination="vZY-aL-SHH" eventType="touchUpInside" id="Ne8-j3-DVL"/>
-                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9an-kb-gaE">
                                 <rect key="frame" x="29" y="275" width="365" height="56.5"/>
@@ -81,9 +72,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                        <connections>
-                                            <action selector="passwordEditingChanged:" destination="vZY-aL-SHH" eventType="editingDidEnd" id="Ph7-Vv-6qH"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1B-kc-cgu">
                                         <rect key="frame" x="0.0" y="42" width="365" height="14.5"/>
@@ -102,9 +90,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bFY-VT-UuQ">
                                 <rect key="frame" x="177" y="468.5" width="60" height="30"/>
                                 <state key="normal" title="SIGN UP"/>
-                                <connections>
-                                    <action selector="didPressSignUpButton:" destination="vZY-aL-SHH" eventType="touchUpInside" id="PiL-mc-fPe"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CL1-N9-oWp"/>
@@ -126,6 +111,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="13G-XS-oID" id="obi-Ue-ieA"/>
                         <outlet property="emailTextField" destination="Oco-b4-9Fj" id="ePv-9a-2kh"/>
                         <outlet property="emailWarningLabel" destination="6Hk-ME-xwY" id="ell-NY-4WK"/>
                         <outlet property="password2TextField" destination="rPb-6T-rCM" id="nRb-g8-9aD"/>
