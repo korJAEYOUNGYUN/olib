@@ -7,26 +7,27 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 class SignInViewModel: BaseViewModel {
     
-    let email = PublishSubject<String>()
-    let emailValidation = BehaviorSubject(value: false)
+    let email = PublishRelay<String>()
+    let emailValidation = BehaviorRelay(value: false)
     
-    let password = PublishSubject<String>()
-    let passwordValidation = BehaviorSubject(value: false)
+    let password = PublishRelay<String>()
+    let passwordValidation = BehaviorRelay(value: false)
     
     override init() {
         super.init()
         
         email
             .map { $0.isValidEmail() }
-            .subscribe(emailValidation)
+            .bind(to: emailValidation)
             .disposed(by: disposeBag)
         
         password
             .map { $0.isValidPassword() }
-            .subscribe(passwordValidation)
+            .bind(to: passwordValidation)
             .disposed(by: disposeBag)
     }
     

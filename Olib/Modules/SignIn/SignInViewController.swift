@@ -29,32 +29,26 @@ class SignInViewController: UIViewController, ViewModelBindableType {
     }
     
     func bindUI() {
-        emailTextField.rx.text
-            .orEmpty
-            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .subscribe(viewModel.email)
+        getText(from: emailTextField.rx.text)
+            .bind(to: viewModel.email)
             .disposed(by: rx.disposeBag)
         
         viewModel.emailValidation
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { isValid in
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { isValid in
                 UIView.animate(withDuration: 0.5) { [weak self] in
                     self?.emailWarningLabel.isHidden = isValid
                 }
             })
             .disposed(by: rx.disposeBag)
         
-        passwordTextField.rx.text
-            .orEmpty
-            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
-            .distinctUntilChanged()
-            .subscribe(viewModel.password)
+        getText(from: passwordTextField.rx.text)
+            .bind(to: viewModel.password)
             .disposed(by: rx.disposeBag)
         
         viewModel.passwordValidation
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { isValid in
+            .asDriver(onErrorJustReturn: false)
+            .drive(onNext: { isValid in
                 UIView.animate(withDuration: 0.5) { [weak self] in
                     self?.passwordWarningLabel.isHidden = isValid
                 }
@@ -72,6 +66,13 @@ class SignInViewController: UIViewController, ViewModelBindableType {
             })
             .disposed(by: rx.disposeBag)
     }
+    
+    func getText(from text: ControlProperty<String?>) -> Observable<String> {
+        text.orEmpty
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+    }
+
         
     @IBAction func goToSignUp(_ sender: Any) {
         // go further to signupVC
