@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class BookSearchViewController: UIViewController {
+class BookSearchViewController: UIViewController, ViewModelBindableType {
 
+    var viewModel: BookSearchViewModel!
+        
     @IBOutlet weak var libraryTextField: UITextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
@@ -19,18 +23,30 @@ class BookSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // FIXME: for test
+        viewModel = BookSearchViewModel()
+        bindUI()
+    }
+    
+    func bindUI() {
+        searchButton.rx.tap
+            .map { [weak self] in self?.getQueries() }
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.searchBook(with: $0)
+            })
+            .disposed(by: rx.disposeBag)
     }
 
-    @IBAction func searchBook(_ sender: Any) {
-        let searchedBooksVC = UIStoryboard(name: "SearchedBooksTableViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchedBooksTableViewController") as! SearchedBooksTableViewController
-        
-        // searchedBooksVc로 검색 조건들 전송
-        searchedBooksVC.queries = getQueries()
-        
-        if let n = self.navigationController {
-            n.pushViewController(searchedBooksVC, animated: true)
-        }
-    }
+//    @IBAction func searchBook(_ sender: Any) {
+//        let searchedBooksVC = UIStoryboard(name: "SearchedBooksTableViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchedBooksTableViewController") as! SearchedBooksTableViewController
+//
+//        // searchedBooksVc로 검색 조건들 전송
+//        searchedBooksVC.queries = getQueries()
+//
+//        if let n = self.navigationController {
+//            n.pushViewController(searchedBooksVC, animated: true)
+//        }
+//    }
     
     private func getQueries() -> [String: String]? {
         var queries = [String: String]()

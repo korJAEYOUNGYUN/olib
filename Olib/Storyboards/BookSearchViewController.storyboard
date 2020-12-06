@@ -100,9 +100,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPj-cd-CEg">
                                 <rect key="frame" x="177.5" y="478" width="59" height="30"/>
                                 <state key="normal" title="SEARCH"/>
-                                <connections>
-                                    <action selector="searchBook:" destination="mVI-Dr-cvW" eventType="touchUpInside" id="nwt-nA-wRw"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="snA-7M-FU1"/>

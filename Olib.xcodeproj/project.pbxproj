@@ -60,6 +60,7 @@
 		002C9A192578BB2D00DA1AD9 /* ViewModelBindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A182578BB2D00DA1AD9 /* ViewModelBindableType.swift */; };
 		002C9A1C257A1CA400DA1AD9 /* APIRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A1B257A1CA400DA1AD9 /* APIRequestError.swift */; };
 		002C9A1F257B6FE900DA1AD9 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A1E257B6FE900DA1AD9 /* SignUpViewModel.swift */; };
+		002C9A27257CBBC000DA1AD9 /* BookSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C9A26257CBBC000DA1AD9 /* BookSearchViewModel.swift */; };
 		BE10B617B87EE8280CCFA4B1 /* Pods_Olib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 597B34CE8B49908FDD796204 /* Pods_Olib.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +120,7 @@
 		002C9A182578BB2D00DA1AD9 /* ViewModelBindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBindableType.swift; sourceTree = "<group>"; };
 		002C9A1B257A1CA400DA1AD9 /* APIRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestError.swift; sourceTree = "<group>"; };
 		002C9A1E257B6FE900DA1AD9 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		002C9A26257CBBC000DA1AD9 /* BookSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSearchViewModel.swift; sourceTree = "<group>"; };
 		3D5C9129A46D4D3FAD024B20 /* Pods-Olib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olib.debug.xcconfig"; path = "Target Support Files/Pods-Olib/Pods-Olib.debug.xcconfig"; sourceTree = "<group>"; };
 		597B34CE8B49908FDD796204 /* Pods_Olib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Olib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E685DD0D7104E40598338EF2 /* Pods-Olib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Olib.release.xcconfig"; path = "Target Support Files/Pods-Olib/Pods-Olib.release.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */,
+				002C9A26257CBBC000DA1AD9 /* BookSearchViewModel.swift */,
 			);
 			path = BookSearch;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				002C98F82552F76C00DA1AD9 /* PostTokenRefreshRequest.swift in Sources */,
 				002C99282559055D00DA1AD9 /* PatchBorrowingRequest.swift in Sources */,
 				002C98A02536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift in Sources */,
+				002C9A27257CBBC000DA1AD9 /* BookSearchViewModel.swift in Sources */,
 				002C992B2559059600DA1AD9 /* PostUserRequest.swift in Sources */,
 				002C98AB2538021A00DA1AD9 /* CurrentBorrowingTableViewCell.swift in Sources */,
 			);
