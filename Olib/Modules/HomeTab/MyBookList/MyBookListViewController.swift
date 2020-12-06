@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class MyBookListViewController: UIViewController {
+class MyBookListViewController: UIViewController, ViewModelBindableType {
+    
+    var viewModel: MyBookListViewModel!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +35,14 @@ class MyBookListViewController: UIViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             self.getBorrowingList()
         }
+        
+        // FIXME: for test
+        viewModel = MyBookListViewModel()
+        bindUI()
+    }
+    
+    func bindUI() {
+
     }
     
     private func getBorrowingList() {
