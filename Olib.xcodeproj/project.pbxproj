@@ -29,7 +29,7 @@
 		002C98B02538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98AF2538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift */; };
 		002C98B42538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98B22538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift */; };
 		002C98B52538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002C98B32538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib */; };
-		002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98B72538357F00DA1AD9 /* MenuTabBarController.swift */; };
+		002C98B82538357F00DA1AD9 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98B72538357F00DA1AD9 /* HomeTabBarController.swift */; };
 		002C98D7255006AA00DA1AD9 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98D6255006AA00DA1AD9 /* HTTPMethod.swift */; };
 		002C98DE2551249400DA1AD9 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98DD2551249400DA1AD9 /* Token.swift */; };
 		002C98E52551282600DA1AD9 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002C98E42551282600DA1AD9 /* AuthManager.swift */; };
@@ -88,7 +88,7 @@
 		002C98AF2538119A00DA1AD9 /* MyBookListViewController+UITableViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyBookListViewController+UITableViewControl.swift"; sourceTree = "<group>"; };
 		002C98B22538130F00DA1AD9 /* PreviousBorrowingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousBorrowingTableViewCell.swift; sourceTree = "<group>"; };
 		002C98B32538130F00DA1AD9 /* PreviousBorrowingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreviousBorrowingTableViewCell.xib; sourceTree = "<group>"; };
-		002C98B72538357F00DA1AD9 /* MenuTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBarController.swift; sourceTree = "<group>"; };
+		002C98B72538357F00DA1AD9 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		002C98D6255006AA00DA1AD9 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		002C98DD2551249400DA1AD9 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		002C98E42551282600DA1AD9 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -197,24 +197,23 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		002C98C0254FD7CA00DA1AD9 /* MenuTab */ = {
+		002C98C0254FD7CA00DA1AD9 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
+				002C9A24257CBAD400DA1AD9 /* BookList */,
 				002C98C2254FD8C500DA1AD9 /* MyBookList */,
-				002C98C1254FD7E000DA1AD9 /* Search */,
-				002C98B72538357F00DA1AD9 /* MenuTabBarController.swift */,
+				002C98C1254FD7E000DA1AD9 /* BookSearch */,
+				002C98B72538357F00DA1AD9 /* HomeTabBarController.swift */,
 			);
-			path = MenuTab;
+			path = HomeTab;
 			sourceTree = "<group>";
 		};
-		002C98C1254FD7E000DA1AD9 /* Search */ = {
+		002C98C1254FD7E000DA1AD9 /* BookSearch */ = {
 			isa = PBXGroup;
 			children = (
-				002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */,
-				002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */,
 				002C98922536B2F300DA1AD9 /* BookSearchViewController.swift */,
 			);
-			path = Search;
+			path = BookSearch;
 			sourceTree = "<group>";
 		};
 		002C98C2254FD8C500DA1AD9 /* MyBookList */ = {
@@ -240,7 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				002C9A142578AA4B00DA1AD9 /* Common */,
-				002C98C0254FD7CA00DA1AD9 /* MenuTab */,
+				002C98C0254FD7CA00DA1AD9 /* HomeTab */,
 				002C98BB254FD40D00DA1AD9 /* SignIn */,
 				002C98BD254FD50100DA1AD9 /* SignUp */,
 			);
@@ -407,6 +406,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		002C9A24257CBAD400DA1AD9 /* BookList */ = {
+			isa = PBXGroup;
+			children = (
+				002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */,
+				002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */,
+			);
+			path = BookList;
+			sourceTree = "<group>";
+		};
 		0BFA711487284D6A890102A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -561,7 +569,7 @@
 				002C99082553B41100DA1AD9 /* BookClient.swift in Sources */,
 				002C98EC2551826300DA1AD9 /* PostTokenRequest.swift in Sources */,
 				002C990E2554416400DA1AD9 /* Book.swift in Sources */,
-				002C98B82538357F00DA1AD9 /* MenuTabBarController.swift in Sources */,
+				002C98B82538357F00DA1AD9 /* HomeTabBarController.swift in Sources */,
 				002C9954255BE44B00DA1AD9 /* UIViewController+UILabelWarning.swift in Sources */,
 				002C9A1C257A1CA400DA1AD9 /* APIRequestError.swift in Sources */,
 				002C9A0A2578A64900DA1AD9 /* SignInViewModel.swift in Sources */,
