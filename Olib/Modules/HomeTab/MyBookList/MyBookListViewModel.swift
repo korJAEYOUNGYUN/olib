@@ -10,8 +10,14 @@ import RxSwift
 
 class MyBookListViewModel: BaseViewModel {
     
-    let currentBorrowingList = PublishSubject<[Borrowing]>()
-    let previousBorrowingList = PublishSubject<[Borrowing]>()
+    let currentBorrowingList = BehaviorSubject<[Borrowing]>(value: [])
+    let previousBorrowingList = BehaviorSubject<[Borrowing]>(value: [])
+    
+    override init() {
+        super.init()
+        
+        getBorrowingList()
+    }
     
     func getBorrowingList() {
         let authManager = AuthManager.shared
