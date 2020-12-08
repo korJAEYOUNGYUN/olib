@@ -35,30 +35,49 @@ class MyBookListViewController: UIViewController, ViewModelBindableType {
 //        DispatchQueue.global(qos: .userInitiated).async {
 //            self.getBorrowingList()
 //        }
-        
-        // FIXME: for test
-        viewModel = MyBookListViewModel()
         bindUI()
     }
     
     func bindUI() {
-        viewModel.currentBorrowingList
-            .bind(to: tableView.rx.items(cellIdentifier: "CurrentBorrowingTableViewCell", cellType: CurrentBorrowingTableViewCell.self)) { index, borrowing, cell in
-                cell.titleLabel.text = borrowing.book.book_info.title
-                cell.authorLabel.text = borrowing.book.book_info.author
-                cell.borrowDateLabel.text = borrowing.borrowed_at
-                cell.deadlineLabel.text = borrowing.due
-            }
+        
+        Observable.combineLatest(viewModel.currentBorrowingList, viewModel.previousBorrowingList) { [$0, $1] }
+            .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: rx.disposeBag)
         
-        viewModel.previousBorrowingList
-            .bind(to: tableView.rx.items(cellIdentifier: "PreviousBorrowingTableViewCell", cellType: PreviousBorrowingTableViewCell.self)) { index, borrowing, cell in
-                cell.titleLabel.text = borrowing.book.book_info.title
-                cell.authorLabel.text = borrowing.book.book_info.author
-                cell.borrowDateLabel.text = borrowing.borrowed_at
-                cell.returnDateLabel.text = borrowing.returned_at
-            }
-            .disposed(by: rx.disposeBag)
+        viewModel.getBorrowingList()
+        
+//        Observable.concat(viewModel.currentBorrowingList, viewModel.previousBorrowingList)
+//            .bind(to: tableView.rx.items) { tableView, index, borrowing in
+//                if borrowing.is_returned ?? false {
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousBorrowingTableViewCell") as! PreviousBorrowingTableViewCell
+//
+//                    cell.titleLabel.text = borrowing.book.book_info.title
+//                    cell.authorLabel.text = borrowing.book.book_info.author
+//                    cell.borrowDateLabel.text = borrowing.borrowed_at
+//                    cell.returnDateLabel.text = borrowing.returned_at
+//
+//                    return cell
+//                } else {
+//                    let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentBorrowingTableViewCell") as! CurrentBorrowingTableViewCell
+//
+//                    cell.titleLabel.text = borrowing.book.book_info.title
+//                    cell.authorLabel.text = borrowing.book.book_info.author
+//                    cell.borrowDateLabel.text = borrowing.borrowed_at
+//                    cell.deadlineLabel.text = borrowing.due
+//
+//                    return cell
+//                }
+//            }
+//            .disposed(by: rx.disposeBag)
+
+//        viewModel.previousBorrowingList
+//            .bind(to: tableView.rx.items(cellIdentifier: "PreviousBorrowingTableViewCell", cellType: PreviousBorrowingTableViewCell.self)) { index, borrowing, cell in
+//                cell.titleLabel.text = borrowing.book.book_info.title
+//                cell.authorLabel.text = borrowing.book.book_info.author
+//                cell.borrowDateLabel.text = borrowing.borrowed_at
+//                cell.returnDateLabel.text = borrowing.returned_at
+//            }
+//            .disposed(by: rx.disposeBag)
     }
     
 //    private func getBorrowingList() {
@@ -75,7 +94,7 @@ class MyBookListViewController: UIViewController, ViewModelBindableType {
 //        let previousBorrowingQueries = ["user": String(authManager.userId!), "is_returned": "true"]
 //        borrowingClient.getBorrowingList(accessToken: accessToken, queries: previousBorrowingQueries, completion: handleGetPreviousBorrowingList)
 //    }
-    
+//
 //    private func handleGetCurrentBorrowingList(response: HTTPURLResponse, data: Data?) {
 //        switch response.statusCode {
 //        case 200:
@@ -102,7 +121,7 @@ class MyBookListViewController: UIViewController, ViewModelBindableType {
 //            }
 //        }
 //    }
-    
+//
 //    private func handleGetPreviousBorrowingList(response: HTTPURLResponse, data: Data?) {
 //        switch response.statusCode {
 //        case 200:
