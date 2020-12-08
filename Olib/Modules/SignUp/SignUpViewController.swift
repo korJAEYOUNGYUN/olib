@@ -29,8 +29,6 @@ class SignUpViewController: UIViewController, ViewModelBindableType {
         passwordWarningLabel.text = String.PASSWORD_INVALID
         password2WarningLabel.text = String.PASSWORD_INVALID
         
-        // FIXME: for test
-        viewModel = SignUpViewModel()
         bindUI()
     }
     
@@ -87,7 +85,7 @@ class SignUpViewController: UIViewController, ViewModelBindableType {
         
         cancelButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.cancel()
+                self?.dismiss(animated: true)
             })
             .disposed(by: rx.disposeBag)
     }

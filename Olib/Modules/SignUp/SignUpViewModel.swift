@@ -22,8 +22,8 @@ class SignUpViewModel: BaseViewModel {
     
     let passwordMatch = BehaviorRelay(value: false)
     
-    override init() {
-        super.init()
+    override init(coordinator: MainCoordinator) {
+        super.init(coordinator: coordinator)
         
         email
             .map { $0.isValidEmail() }
@@ -53,10 +53,5 @@ class SignUpViewModel: BaseViewModel {
                 print(error)
             }
             .disposed(by: disposeBag)
-    }
-    
-    // TODO: dismiss signup view
-    func cancel() {
-        print("cancel")
     }
 }

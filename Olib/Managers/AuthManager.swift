@@ -74,7 +74,7 @@ extension AuthManager {
 
         return AuthClient().rxGetTokens(credentials: credentials)
             .do(onNext: { [weak self] response, data in
-                if response.statusCode == 201 {
+                if response.statusCode == 200 {
                     self?.handleAuthenticated(data: data)
                 }
             })
@@ -86,7 +86,7 @@ extension AuthManager {
         
         return AuthClient().rxCreateUser(credentials: credentials)
             .do(onNext: { [weak self] response, data in
-                if response.statusCode == 201 {
+                if response.statusCode == 200 {
                     self?.handleAuthenticated(data: data)
                 }
             })

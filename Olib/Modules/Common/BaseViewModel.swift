@@ -11,4 +11,9 @@ import NSObject_Rx
 
 class BaseViewModel: HasDisposeBag {
     
+    weak var coordinator: MainCoordinator?
+    
+    init(coordinator: MainCoordinator) {
+        self.coordinator = coordinator
+    }
 }

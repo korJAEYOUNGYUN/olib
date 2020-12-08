@@ -23,8 +23,6 @@ class SignInViewController: UIViewController, ViewModelBindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //FIXME: for test
-        viewModel = SignInViewModel()
         bindUI()
     }
     
@@ -65,19 +63,18 @@ class SignInViewController: UIViewController, ViewModelBindableType {
                 self?.viewModel.authenticate(with: $0, password: $1)
             })
             .disposed(by: rx.disposeBag)
+        
+        signUpButton.rx.tap
+            .asDriver()
+            .drive(onNext: { [weak self] in
+                self?.viewModel.goToSignUp()
+            })
+            .disposed(by: rx.disposeBag)
     }
     
     func getText(from text: ControlProperty<String?>) -> Observable<String> {
         text.orEmpty
             .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-    }
-
-        
-    @IBAction func goToSignUp(_ sender: Any) {
-        // go further to signupVC
-        let signUpVC = UIStoryboard(name: "SignUpViewController", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
-        signUpVC.modalPresentationStyle = .fullScreen
-        self.present(signUpVC, animated: true, completion: nil)
     }
 }

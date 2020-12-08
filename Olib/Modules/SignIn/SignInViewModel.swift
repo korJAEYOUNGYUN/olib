@@ -17,8 +17,8 @@ class SignInViewModel: BaseViewModel {
     let password = PublishRelay<String>()
     let passwordValidation = BehaviorRelay(value: false)
     
-    override init() {
-        super.init()
+    override init(coordinator: MainCoordinator) {
+        super.init(coordinator: coordinator)
         
         email
             .map { $0.isValidEmail() }
@@ -31,14 +31,25 @@ class SignInViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
-    // TODO: dismiss when authentication success
     func authenticate(with email: String, password: String) {
         AuthManager.shared.rxAuthenticate(with: email, password: password)
-            .subscribe { (response) in
-                print(response)
-            } onError: { (error) in
-                print(error)
-            }
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] response in
+                switch response.statusCode {
+                case 200:
+                    self?.coordinator?.home()
+                case 401:
+                    print("no matched user")
+                default:
+                    print("network error")
+                }
+            }, onError: { (error) in
+                print("error", error)
+            })
             .disposed(by: disposeBag)
+    }
+    
+    func goToSignUp() {
+        self.coordinator?.signUp()
     }
 }
