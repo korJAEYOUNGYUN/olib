@@ -22,9 +22,7 @@ class BookSearchViewController: UIViewController, ViewModelBindableType {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // FIXME: for test
-        viewModel = BookSearchViewModel()
+        
         bindUI()
     }
     

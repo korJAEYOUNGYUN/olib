@@ -206,7 +206,7 @@
 		002C98C0254FD7CA00DA1AD9 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
-				002C9A24257CBAD400DA1AD9 /* BookList */,
+				002C9A24257CBAD400DA1AD9 /* SearchedBookList */,
 				002C98C2254FD8C500DA1AD9 /* MyBookList */,
 				002C98C1254FD7E000DA1AD9 /* BookSearch */,
 			);
@@ -415,13 +415,13 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		002C9A24257CBAD400DA1AD9 /* BookList */ = {
+		002C9A24257CBAD400DA1AD9 /* SearchedBookList */ = {
 			isa = PBXGroup;
 			children = (
 				002C989E2536CA6D00DA1AD9 /* SearchedBookTableViewCell.swift */,
 				002C98982536C4F400DA1AD9 /* SearchedBooksTableViewController.swift */,
 			);
-			path = BookList;
+			path = SearchedBookList;
 			sourceTree = "<group>";
 		};
 		0BFA711487284D6A890102A4 /* Frameworks */ = {

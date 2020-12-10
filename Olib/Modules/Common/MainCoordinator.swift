@@ -36,8 +36,7 @@ class MainCoordinator: Coordinator {
 
         var viewControllers = [UIViewController]()
         
-        let searchNav = UIStoryboard(name: "BookSearchViewController", bundle: nil).instantiateViewController(withIdentifier: "BookSearchNavigationController") as! UINavigationController
-        var searchVC = searchNav.viewControllers.first as! BookSearchViewController
+        var searchVC = UIStoryboard(name: "BookSearchViewController", bundle: nil).instantiateViewController(withIdentifier: "BookSearchViewController") as! BookSearchViewController
         searchVC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass.circle"), tag: 0)
         let searchVM = BookSearchViewModel(coordinator: self)
         searchVC.bind(viewModel: searchVM)
@@ -53,5 +52,12 @@ class MainCoordinator: Coordinator {
         homeTabBarController.selectedViewController = searchVC
         
         navigationController.pushViewController(homeTabBarController, animated: true)
+    }
+    
+    func searchedBookList(_ queries: [String: String]?) {
+        let vc = UIStoryboard(name: "SearchedBooksTableViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchedBooksTableViewController") as! SearchedBooksTableViewController
+        vc.queries = queries
+            
+        navigationController.pushViewController(vc, animated: true)
     }
 }

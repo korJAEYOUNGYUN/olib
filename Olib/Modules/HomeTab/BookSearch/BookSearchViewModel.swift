@@ -9,8 +9,8 @@ import Foundation
 import RxSwift
 
 class BookSearchViewModel: BaseViewModel {
-        
+            
     func searchBook(with queries: [String: String]?) {
-        
+        coordinator?.searchedBookList(queries)
     }
 }
