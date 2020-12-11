@@ -55,9 +55,11 @@ class MainCoordinator: Coordinator {
     }
     
     func searchedBookList(_ queries: [String: String]?) {
-        let vc = UIStoryboard(name: "SearchedBooksTableViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchedBooksTableViewController") as! SearchedBooksTableViewController
-        vc.queries = queries
-            
+        var vc = UIStoryboard(name: "SearchedBooksTableViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchedBooksTableViewController") as! SearchedBooksTableViewController
+        
+        let vm = SearchedBooksViewModel(coordinator: self, queries: queries)
+        vc.bind(viewModel: vm)
+        
         navigationController.pushViewController(vc, animated: true)
     }
 }

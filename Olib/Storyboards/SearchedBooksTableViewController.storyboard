@@ -15,11 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="KdV-K6-jEB" id="dHB-Rp-vaN"/>
-                            <outlet property="delegate" destination="KdV-K6-jEB" id="2Fr-U2-OnF"/>
-                        </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="aqt-SN-xOP" id="IrJ-QH-pM1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xg1-gc-SiP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

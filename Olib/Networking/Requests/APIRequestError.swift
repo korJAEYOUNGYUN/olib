@@ -9,4 +9,5 @@ import Foundation
 
 enum APIRequestError: Error {
     case invalidURL
+    case invalidAuthenticationToken
 }
