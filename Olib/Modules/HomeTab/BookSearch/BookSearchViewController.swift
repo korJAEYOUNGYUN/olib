@@ -34,17 +34,6 @@ class BookSearchViewController: UIViewController, ViewModelBindableType {
             })
             .disposed(by: rx.disposeBag)
     }
-
-//    @IBAction func searchBook(_ sender: Any) {
-//        let searchedBooksVC = UIStoryboard(name: "SearchedBooksTableViewController", bundle: nil).instantiateViewController(withIdentifier: "SearchedBooksTableViewController") as! SearchedBooksTableViewController
-//
-//        // searchedBooksVc로 검색 조건들 전송
-//        searchedBooksVC.queries = getQueries()
-//
-//        if let n = self.navigationController {
-//            n.pushViewController(searchedBooksVC, animated: true)
-//        }
-//    }
     
     private func getQueries() -> [String: String]? {
         var queries = [String: String]()
